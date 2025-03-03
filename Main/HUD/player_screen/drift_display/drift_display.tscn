@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfsx8v4xhh8bu"]
+
+[ext_resource type="Script" path="res://Main/HUD/player_screen/drift_display/drift_display.gd" id="1_aocgv"]
+[ext_resource type="Texture2D" uid="uid://b71lhhoiesaih" path="res://Assets/HUD/progress_bar.png" id="1_ulhs6"]
+[ext_resource type="Texture2D" uid="uid://cua3nqjheoe38" path="res://Assets/HUD/progress_bar_progress.png" id="2_qdtga"]
+
+[node name="driftHUDControl" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_aocgv")
+animation_offset = Vector2(-64, -8)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 90.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="driftTimerLabel" type="RichTextLabel" parent="MarginContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 3
+text = "00.00"
+scroll_active = false
+
+[node name="Label" type="Label" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "drift"
+
+[node name="driftProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+value = 9.0
+texture_under = ExtResource("1_ulhs6")
+texture_progress = ExtResource("2_qdtga")

@@ -1,0 +1,331 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbeynm7fsffvk"]
+
+[ext_resource type="Script" path="res://Main/HUD/config_menu/config_menu.gd" id="1_quxbk"]
+[ext_resource type="Texture2D" uid="uid://rovmt4jr87un" path="res://Assets/HUD/Icons/gamepad.png" id="2_i2usu"]
+[ext_resource type="PackedScene" uid="uid://dlrs5ln8e3lhb" path="res://Main/HUD/config_menu_categories/volume_config_margin.tscn" id="4_4kyt3"]
+[ext_resource type="Texture2D" uid="uid://cuqae4etoydta" path="res://Assets/HUD/pause_button.png" id="7_31hr3"]
+
+[sub_resource type="Animation" id="Animation_veh50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/backgroundLayer/backgroundRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/footerBar/Control:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/screensControl:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5k8e7"]
+resource_name = "close_menu"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/backgroundLayer/backgroundRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Color(0, 0, 0, 0.784314), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/footerBar/Control:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 0.90125),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/screensControl:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 1e-05]
+}
+
+[sub_resource type="Animation" id="Animation_ogso7"]
+resource_name = "open_menu"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/backgroundLayer/backgroundRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.4),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.784314)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/footerBar/Control:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/screensControl:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 0.45),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00eqr"]
+_data = {
+"RESET": SubResource("Animation_veh50"),
+"close_menu": SubResource("Animation_5k8e7"),
+"open_menu": SubResource("Animation_ogso7")
+}
+
+[sub_resource type="GDScript" id="GDScript_sfodn"]
+script/source = "class_name ConfigMenuCategoryScreen
+extends MarginContainer
+
+@export var category_name : String
+@export var category_icon : Texture
+"
+
+[sub_resource type="Gradient" id="Gradient_8w1u8"]
+offsets = PackedFloat32Array(0, 0.186667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wdngw"]
+gradient = SubResource("Gradient_8w1u8")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.0121951)
+
+[node name="config_menu" type="CanvasLayer" node_paths=PackedStringArray("screens_array")]
+process_mode = 3
+script = ExtResource("1_quxbk")
+screens_array = [null, null]
+category_icons_container = NodePath("SubViewportContainer/SubViewport/footerBar/Control/MarginContainer/menuCategoryHBox")
+category_label = NodePath("SubViewportContainer/SubViewport/footerBar/Control/MarginContainer/titlePivot/configTitle")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_00eqr")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 360.0
+theme_override_constants/separation = 0
+
+[node name="controlsConfigMargin" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(640, 274)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+script = SubResource("GDScript_sfodn")
+category_name = "Controles"
+category_icon = ExtResource("2_i2usu")
+
+[node name="volumeConfigContainer" type="ScrollContainer" parent="HBoxContainer/controlsConfigMargin"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/controlsConfigMargin/volumeConfigContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="VolumeConfigMargin" parent="HBoxContainer" instance=ExtResource("4_4kyt3")]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[node name="screensControl" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+
+[node name="backgroundLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+layer = -1
+
+[node name="backgroundRect" type="ColorRect" parent="SubViewportContainer/SubViewport/backgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="footerBar" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+layer = 3
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/footerBar"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(320, 360)
+mouse_filter = 2
+
+[node name="ColorRect" type="TextureRect" parent="SubViewportContainer/SubViewport/footerBar/Control"]
+layout_mode = 0
+offset_top = 224.0
+offset_right = 640.0
+offset_bottom = 288.0
+texture = SubResource("GradientTexture2D_wdngw")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/footerBar/Control"]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/footerBar/Control/MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="menuCategoryHBox" type="HBoxContainer" parent="SubViewportContainer/SubViewport/footerBar/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="titlePivot" type="Control" parent="SubViewportContainer/SubViewport/footerBar/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="configTitle" type="Label" parent="SubViewportContainer/SubViewport/footerBar/Control/MarginContainer/titlePivot"]
+layout_mode = 2
+offset_left = -320.0
+offset_top = -19.0
+offset_right = 320.0
+offset_bottom = 19.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 32
+text = "CONTROLES"
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="SubViewportContainer/SubViewport/CanvasLayer2"]
+modulate = Color(0.65834, 0.65834, 0.65834, 0.784314)
+position = Vector2(586, 6)
+texture_normal = ExtResource("7_31hr3")
+action = "pause_button"

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlrs5ln8e3lhb"]
+
+[ext_resource type="PackedScene" uid="uid://jp3678liaglj" path="res://Main/HUD/config_menu_categories/config_menu_category_base.tscn" id="1_ie6sg"]
+[ext_resource type="Script" path="res://Main/HUD/config_menu_categories/volume_config_margin.gd" id="2_hg4td"]
+[ext_resource type="PackedScene" uid="uid://bc1a6lahvt80r" path="res://Main/HUD/menu_button/menu_button_check.tscn" id="3_377uj"]
+[ext_resource type="PackedScene" uid="uid://bohnqwueaplvs" path="res://Main/HUD/menu_button/menu_button_volume.tscn" id="4_h7wjy"]
+
+[node name="baseConfigCategory" instance=ExtResource("1_ie6sg")]
+script = ExtResource("2_hg4td")
+category_name = "Volumen"
+
+[node name="muteButton" parent="configContainer/VBoxContainer" index="0" instance=ExtResource("3_377uj")]
+layout_mode = 2
+mouse_filter = 1
+button_text = "Silenciar volumen"
+
+[node name="masterVolumeButton" parent="configContainer/VBoxContainer" index="1" instance=ExtResource("4_h7wjy")]
+layout_mode = 2
+
+[node name="musicVolumeButton" parent="configContainer/VBoxContainer" index="2" instance=ExtResource("4_h7wjy")]
+layout_mode = 2
+audio_bus_index = 1
+button_text = "Volumen musica"
+
+[node name="SFXVolumeButton" parent="configContainer/VBoxContainer" index="3" instance=ExtResource("4_h7wjy")]
+layout_mode = 2
+audio_bus_index = 2
+button_text = "Volumen efectos de sonido"
+
+[connection signal="toggled" from="configContainer/VBoxContainer/muteButton" to="." method="_on_mute_button_toggled"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmhsufwyep0cs"]
+
+[ext_resource type="Script" path="res://Main/HUD/Timer_node/timer_node.gd" id="1_v385j"]
+
+[node name="TimerContainer" type="MarginContainer"]
+custom_minimum_size = Vector2(132, 32)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("1_v385j")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MinuteLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(33, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+text = "00''"
+
+[node name="SecondsLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(29, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+text = "00'"
+
+[node name="MilisecondLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+text = "000"

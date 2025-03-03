@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctoy0xwb5dm8i"]
+
+[ext_resource type="Texture2D" uid="uid://bt10wrefg2pxd" path="res://Assets/HUD/Buttons/accelerate_button_small.png" id="1_d6mg7"]
+[ext_resource type="Script" path="res://Main/HUD/player_screen/player_screen_buttons/hotkey_button_base.gd" id="1_s3e36"]
+[ext_resource type="Texture2D" uid="uid://cl1oelnbuctx0" path="res://Assets/HUD/Buttons/accelerate_button_small_pressed.png" id="2_or4n7"]
+
+[node name="hotkeyButtonBase" type="MarginContainer"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+script = ExtResource("1_s3e36")
+margin_animation_offset = null
+custom_label_default_position = null
+label_animation_offset = Vector2(0, -16)
+input_action = null
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="automaticDrivingMargin" type="MarginContainer" parent="Control"]
+layout_mode = 2
+offset_left = 43.0
+offset_right = 171.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+mouse_filter = 2
+
+[node name="label" type="RichTextLabel" parent="Control/automaticDrivingMargin"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/line_separation = -6
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]State"
+fit_content = true
+scroll_active = false
+
+[node name="state_label" type="RichTextLabel" parent="Control/automaticDrivingMargin"]
+clip_contents = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.226707, 0.226707, 0.226707, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]OFF"
+fit_content = true
+scroll_active = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource("1_d6mg7")
+texture_pressed = ExtResource("2_or4n7")
+stretch_mode = 3
+
+[node name="inactiveTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="timeout" from="inactiveTimer" to="." method="_on_inactive_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

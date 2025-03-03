@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://blwhphw57nygp"]
+
+[ext_resource type="Script" path="res://Main/MainScripts/main.gd" id="1_1c0po"]
+[ext_resource type="PackedScene" uid="uid://fl58kaw0448p" path="res://Main/HUD/player_screen/playerScreen.tscn" id="2_1nrs2"]
+[ext_resource type="PackedScene" uid="uid://blb16i07t5to8" path="res://Main/Nodes/ScreenEffects/circle_transition.tscn" id="4_yshms"]
+[ext_resource type="PackedScene" uid="uid://c4ar6do1m1y6s" path="res://Main/World.tscn" id="5_8fvvc"]
+[ext_resource type="PackedScene" uid="uid://bgkorpnsxb4mq" path="res://Main/HUD/pause_menu/pause_menu.tscn" id="5_mlbjq"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1c0po")
+
+[node name="pause_menu" parent="." instance=ExtResource("5_mlbjq")]
+config_menu = NodePath("")
+
+[node name="playerScreen" parent="." instance=ExtResource("2_1nrs2")]
+
+[node name="circleTransition" parent="." instance=ExtResource("4_yshms")]
+
+[node name="World" parent="." instance=ExtResource("5_8fvvc")]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://blb16i07t5to8"]
+
+[ext_resource type="Script" path="res://Main/Nodes/ScreenEffects/circle_transition.gd" id="1_cfqhs"]
+[ext_resource type="Shader" path="res://Shaders/circle_transition.gdshader" id="2_mrecr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88iro"]
+shader = ExtResource("2_mrecr")
+shader_parameter/circle_size = 0.0
+shader_parameter/screen_width = 640.0
+shader_parameter/screen_height = 360.0
+
+[node name="circleTransition" type="Node2D"]
+script = ExtResource("1_cfqhs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_88iro")
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

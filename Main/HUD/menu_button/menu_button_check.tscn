@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc1a6lahvt80r"]
+
+[ext_resource type="PackedScene" uid="uid://c7ssjlpdmob4j" path="res://Main/HUD/menu_button/menu_button_base.tscn" id="1_rr241"]
+[ext_resource type="Script" path="res://Main/HUD/menu_button/menu_button_check.gd" id="2_ks0wd"]
+[ext_resource type="Theme" uid="uid://cfmgf0quvx1bf" path="res://Assets/Theme/custom_theme.tres" id="3_yy0rb"]
+
+[node name="menuButtonBase" instance=ExtResource("1_rr241")]
+custom_minimum_size = Vector2(640, 64)
+offset_right = 640.0
+offset_bottom = 64.0
+pivot_offset = Vector2(0, 32)
+script = ExtResource("2_ks0wd")
+
+[node name="menuButton" parent="." index="0"]
+toggle_mode = true
+button_pressed = true
+
+[node name="contentMargin" parent="." index="1"]
+theme_override_constants/margin_top = 4
+
+[node name="Label" parent="contentMargin" index="0"]
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="." index="2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CheckBox" type="CheckBox" parent="." index="3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+theme = ExtResource("3_yy0rb")
+button_pressed = true
+button_mask = 0
+
+[connection signal="toggled" from="menuButton" to="." method="_on_menu_button_toggled"]

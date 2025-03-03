@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://bohnqwueaplvs"]
+
+[ext_resource type="PackedScene" uid="uid://c7ssjlpdmob4j" path="res://Main/HUD/menu_button/menu_button_base.tscn" id="1_sdnkv"]
+[ext_resource type="Script" path="res://Main/HUD/menu_button/menu_button_volume.gd" id="2_0plhf"]
+[ext_resource type="Theme" uid="uid://cfmgf0quvx1bf" path="res://Assets/Theme/custom_theme.tres" id="2_p2i14"]
+[ext_resource type="Texture2D" uid="uid://bb2ef8lj3wobp" path="res://Assets/HUD/Icons/audioOff.png" id="3_0exnt"]
+[ext_resource type="Texture2D" uid="uid://bro7sa878lm5p" path="res://Assets/HUD/Icons/audioOn.png" id="5_s7cqp"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hchjc"]
+
+[node name="volumeMenuButton" instance=ExtResource("1_sdnkv")]
+custom_minimum_size = Vector2(640, 96)
+pivot_offset = Vector2(0, 48)
+script = ExtResource("2_0plhf")
+audio_bus_index = 0
+default_index = 3
+button_text = "Volumen maestro"
+
+[node name="contentMargin" parent="." index="1"]
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 26
+
+[node name="Label" parent="contentMargin" index="0"]
+size_flags_vertical = 0
+text = "Volumen maestro"
+
+[node name="indexLabel" type="Label" parent="contentMargin" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 32
+text = "5"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_0exnt")
+stretch_mode = 5
+
+[node name="CheckBox1" type="CheckBox" parent="HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_p2i14")
+button_mask = 0
+button_group = SubResource("ButtonGroup_hchjc")
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_p2i14")
+button_pressed = true
+button_mask = 0
+button_group = SubResource("ButtonGroup_hchjc")
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_p2i14")
+button_mask = 0
+button_group = SubResource("ButtonGroup_hchjc")
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer" index="4"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_p2i14")
+button_mask = 0
+button_group = SubResource("ButtonGroup_hchjc")
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer" index="5"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_p2i14")
+button_mask = 0
+button_group = SubResource("ButtonGroup_hchjc")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" index="6"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("5_s7cqp")
+stretch_mode = 5
