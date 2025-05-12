@@ -14,8 +14,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if Input.get_accelerometer() == Vector3.ZERO:
-		return
+	#if Input.get_accelerometer() == Vector3.ZERO:
+		#return
 	input_x = -Input.get_accelerometer().x * 0.2 
 	if input_x >= 0.1:
 		texture_normal = tilt_right_texture

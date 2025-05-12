@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://baihp1uqo8w8d"]
 
-[ext_resource type="Script" path="res://Main/Nodes/ScreenEffects/cinematic_bars.gd" id="1_fusdw"]
+[ext_resource type="Script" uid="uid://cj24vm7j6bi1j" path="res://Main/Nodes/ScreenEffects/cinematic_bars.gd" id="1_fusdw"]
 
 [node name="cinematicBars" type="Node2D"]
 script = ExtResource("1_fusdw")

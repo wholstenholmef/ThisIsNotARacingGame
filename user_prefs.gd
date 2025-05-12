@@ -14,16 +14,16 @@ extends Resource
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")
 
-func save_exists() -> bool :
+static func create_() -> userPrefs:
+	var res = userPrefs.new()
+	return res
+
+static func save_exists() -> bool :
 	var res : userPrefs = load("user://user_prefs.tres") as userPrefs
 	if res:
 		return true
 	else:
 		return false
-
-static func create() -> userPrefs:
-	var res = userPrefs.new()
-	return res
 
 static func load_or_create() -> userPrefs:
 	var res : userPrefs = load("user://user_prefs.tres") as userPrefs

@@ -17,6 +17,7 @@ var title_tweener
 func _ready() -> void:
 	#$SubViewportContainer/SubViewport.world_2d = World2D.new()
 	#load_prefs()
+	open()
 	
 	camera.position = Vector2.ZERO
 	create_category_buttons()

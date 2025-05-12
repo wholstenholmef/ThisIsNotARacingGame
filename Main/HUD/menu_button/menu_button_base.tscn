@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7ssjlpdmob4j"]
 
-[ext_resource type="Script" path="res://Main/HUD/menu_button/menu_button.gd" id="1_vv01e"]
+[ext_resource type="Script" uid="uid://ign7t3mwol75" path="res://Main/HUD/menu_button/menu_button.gd" id="1_vv01e"]
 [ext_resource type="AudioStream" uid="uid://bmrnd0xtik3r1" path="res://Assets/SFX/hud_click.wav" id="2_fp4ia"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6ey1"]

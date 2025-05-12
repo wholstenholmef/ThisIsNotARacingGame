@@ -5,6 +5,13 @@ extends Control
 
 @onready var drift_timer_label = $MarginContainer/driftTimerLabel
 @onready var drift_progress_bar = $MarginContainer/driftProgressBar
+@onready var drift_level_label = $MarginContainer/driftProgressBar/Control/lvlLabel
+@onready var thunder_animated_sprite = $MarginContainer/driftProgressBar/Control/thunderAnimatedSprite
+
+var progress_bar_white = preload("res://Assets/HUD/ProgressBars/progress_bar_progress.png")
+var progress_bar_blue = preload("res://Assets/HUD/ProgressBars/progress_bar_blue.png")
+var progress_bar_flame = preload("res://Assets/HUD/ProgressBars/progress_flame.png")
+var progress_bar_electric = preload("res://Assets/HUD/ProgressBars/progress_electric.png")
 
 var tweener
 var is_drift_shown := false
@@ -15,6 +22,8 @@ var player_small_boost_time
 var player_boost_time
 var player_max_boost_time
 var drift_bar_tweener
+
+var level_label_tweener
 
 func _ready() -> void:
 	self.modulate.a = 0
@@ -66,11 +75,23 @@ func _process(delta: float) -> void:
 
 func animate_drift_bar() -> void:
 	drift_progress_bar.set_deferred("value", 0)
+	drift_level_label.modulate.a = 0
+	set_progress_bar_progress(progress_bar_blue)
 	if drift_bar_tweener:
 		drift_bar_tweener.kill()
 	drift_bar_tweener = create_tween()
 	drift_bar_tweener.tween_property(drift_progress_bar, "value", 100, player_small_boost_time)
-	drift_bar_tweener.tween_property(drift_progress_bar, "value", 0, 0.05).set_ease(Tween.EASE_OUT)
+	drift_bar_tweener.tween_property(drift_progress_bar, "value", 0, 0.15).set_ease(Tween.EASE_OUT)
+	drift_bar_tweener.tween_callback(set_progress_bar_progress.bind(progress_bar_flame))
+	drift_bar_tweener.parallel().tween_property(drift_level_label, "modulate:a", 1, 0.15).set_ease(Tween.EASE_OUT)
 	drift_bar_tweener.tween_property(drift_progress_bar, "value", 100, player_boost_time)
+	
 	drift_bar_tweener.tween_property(drift_progress_bar, "value", 0, 0.05)
+	drift_bar_tweener.tween_callback(set_progress_bar_progress.bind(progress_bar_electric))
 	drift_bar_tweener.tween_property(drift_progress_bar, "value", 100, player_max_boost_time)
+	
+	await drift_bar_tweener.finished
+	thunder_animated_sprite.play("default")
+
+func set_progress_bar_progress(_texture : Texture) -> void:
+	drift_progress_bar.texture_progress = _texture

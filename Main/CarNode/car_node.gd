@@ -76,10 +76,14 @@ var boost_max_velocity = 60
 
 var user_prefs_instance : userPrefs
 
+var current_camera : Camera3D
+
 func _ready() -> void:
+	current_camera = get_viewport().get_camera_3d()
 	$SFX/motorSFX.play()
 	unemit_sparks_VFX()
 	$carMesh/body.get_active_material(0).albedo_color = mesh_color
+	load_user_prefs()
 
 func load_user_prefs() -> void:
 	user_prefs_instance = userPrefs.load_or_create()
@@ -235,6 +239,9 @@ func get_input() -> void:
 		if accelerate_input == 0:
 			accelerate_input = -1 * speed
 	if Input.is_action_just_pressed("brake_" + str(player_id)):
+		#Camera pan
+		current_camera.set_offset(Vector3(0, 2, -5), 1)
+		
 		if linear_velocity.length() < drift_min_velocity:
 			return
 		if accelerate_input > 0 and steer_input != 0:
@@ -247,6 +254,7 @@ func get_input() -> void:
 			else:
 				drift_direction = 1
 	if Input.is_action_just_released("brake_" + str(player_id)):
+		current_camera.set_offset()
 		driftSFX.stop()
 		unemit_sparks_VFX()
 		%cinematicBars.focus_out()
@@ -259,11 +267,13 @@ func get_input() -> void:
 	
 	if Input.is_action_just_pressed("auto_acceleration_1", false):
 		toggle_automatic_driving()
-		print("input")
 
 	#This limits the steering if is drifting
 	#Creating a mario kart wii drift like
+	#steer_input = (-Input.get_accelerometer().x * 0.2) * deg_to_rad(steering)
+	#$Label.text = str(Input.get_accelerometer())
 	if gyro_movement:
+		#print("gyro")
 		steer_input = (-Input.get_accelerometer().x * 0.2) * deg_to_rad(steering)
 	else:
 		steer_input = Input.get_axis("steer_right_" + str(player_id), "steer_left_" + str(player_id)) * deg_to_rad(steering)

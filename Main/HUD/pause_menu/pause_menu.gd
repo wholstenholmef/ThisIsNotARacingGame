@@ -20,7 +20,6 @@ func open(_change_pause_state = true) -> void:
 		get_tree().set_deferred("paused", true)
 		is_paused = true
 
-
 func close(_change_pause_state = true) -> void:
 	$AnimationPlayer.play("close_menu")
 	if _change_pause_state:

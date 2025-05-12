@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtecqiphnx7de"
-path="res://.godot/imported/accelerate_button.png-1bdfbf3cadbb1f7d334605c806a5e270.ctex"
+uid="uid://b71lhhoiesaih"
+path="res://.godot/imported/progress_bar.png-e26f7881f28d8805e2a5df0b6d2e2cd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/accelerate_button.png"
-dest_files=["res://.godot/imported/accelerate_button.png-1bdfbf3cadbb1f7d334605c806a5e270.ctex"]
+source_file="res://Assets/HUD/ProgressBars/progress_bar.png"
+dest_files=["res://.godot/imported/progress_bar.png-e26f7881f28d8805e2a5df0b6d2e2cd8.ctex"]
 
 [params]
 

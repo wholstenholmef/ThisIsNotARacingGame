@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctoy0xwb5dm8i"]
 
 [ext_resource type="Texture2D" uid="uid://bt10wrefg2pxd" path="res://Assets/HUD/Buttons/accelerate_button_small.png" id="1_d6mg7"]
-[ext_resource type="Script" path="res://Main/HUD/player_screen/player_screen_buttons/hotkey_button_base.gd" id="1_s3e36"]
+[ext_resource type="Script" uid="uid://bsmrkevhr23md" path="res://Main/HUD/player_screen/player_screen_buttons/hotkey_button_base.gd" id="1_s3e36"]
 [ext_resource type="Texture2D" uid="uid://cl1oelnbuctx0" path="res://Assets/HUD/Buttons/accelerate_button_small_pressed.png" id="2_or4n7"]
 
 [node name="hotkeyButtonBase" type="MarginContainer"]
@@ -10,14 +10,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
+mouse_filter = 0
 script = ExtResource("1_s3e36")
-margin_animation_offset = null
-custom_label_default_position = null
 label_animation_offset = Vector2(0, -16)
-input_action = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="automaticDrivingMargin" type="MarginContainer" parent="Control"]
 layout_mode = 2
@@ -61,6 +60,7 @@ scroll_active = false
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
 mouse_filter = 2
+toggle_mode = true
 button_mask = 0
 texture_normal = ExtResource("1_d6mg7")
 texture_pressed = ExtResource("2_or4n7")
@@ -75,6 +75,5 @@ wait_time = 0.1
 one_shot = true
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="inactiveTimer" to="." method="_on_inactive_timer_timeout"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csfg57hsfpnp"
-path="res://.godot/imported/erikkson_logo.png-fe418821f312b28d9614fd71b4b5a1e9.ctex"
+uid="uid://b8n6x3lymaue7"
+path="res://.godot/imported/progress_flame.png-323805563afd93c2f6f8dc0a074aa269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/erikkson_logo.png"
-dest_files=["res://.godot/imported/erikkson_logo.png-fe418821f312b28d9614fd71b4b5a1e9.ctex"]
+source_file="res://Assets/HUD/ProgressBars/progress_flame.png"
+dest_files=["res://.godot/imported/progress_flame.png-323805563afd93c2f6f8dc0a074aa269.ctex"]
 
 [params]
 
