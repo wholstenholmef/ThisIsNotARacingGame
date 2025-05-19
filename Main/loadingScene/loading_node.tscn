@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=3 uid="uid://c1oxyer0q4s5n"]
 
-[ext_resource type="Script" path="res://Main/loadingScene/loading_node.gd" id="1_4hoty"]
+[ext_resource type="Script" uid="uid://cwkfds65f5yjs" path="res://Main/loadingScene/loading_node.gd" id="1_4hoty"]
 [ext_resource type="Texture2D" uid="uid://ddf4rrr601ogd" path="res://Assets/Particles/square_particle.png" id="2_03xli"]
 [ext_resource type="PackedScene" uid="uid://bn4b2eieliic0" path="res://Assets/Racecar/race.glb" id="2_kjpqf"]
 [ext_resource type="Texture2D" uid="uid://cmh0034fiqnba" path="res://Assets/HUD/wheel_animation/wheel_sheet.png" id="2_mswrl"]
@@ -43,7 +43,7 @@ size = Vector2(0.05, 1.25)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_m4oc3"]
-max_value = 1.5
+_limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0.561069, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -57,7 +57,7 @@ size = Vector2(0.1, 1.5)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_6j8k0"]
-max_value = 1.5
+_limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0.561069, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -71,7 +71,7 @@ size = Vector2(0.1, 1.5)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_p0n07"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 2.27547), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 

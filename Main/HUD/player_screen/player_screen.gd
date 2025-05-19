@@ -42,7 +42,7 @@ func load_user_prefs() -> void:
 func _process(delta: float) -> void:
 	if !target_player:
 		return
-	speed_label.text = str(round(target_player.linear_velocity.length()))
+	speed_label.text = str(int(target_player.linear_velocity.length()))
 
 func _on_car_node_gyro_movement_toggled(_state) -> void:
 	if _state:

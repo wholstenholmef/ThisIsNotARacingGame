@@ -12,7 +12,7 @@ config_version=5
 
 config/name="TAARG"
 run/main_scene="res://Main/loadingScene/loading_node.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon_export.png"
 
 [autoload]
@@ -126,6 +126,7 @@ auto_acceleration_3={
 
 [input_devices]
 
+sensors/enable_accelerometer=true
 pointing/emulate_touch_from_mouse=true
 pointing/emulate_mouse_from_touch=false
 

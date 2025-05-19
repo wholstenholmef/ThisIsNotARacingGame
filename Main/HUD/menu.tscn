@@ -84,8 +84,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fdppr"]
 _data = {
-"RESET": SubResource("Animation_05fbv"),
-"intro": SubResource("Animation_dhg86")
+&"RESET": SubResource("Animation_05fbv"),
+&"intro": SubResource("Animation_dhg86")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abpy3"]

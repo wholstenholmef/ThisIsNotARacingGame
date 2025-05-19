@@ -1,8 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfsx8v4xhh8bu"]
+[gd_scene load_steps=14 format=3 uid="uid://dfsx8v4xhh8bu"]
 
-[ext_resource type="Script" path="res://Main/HUD/player_screen/drift_display/drift_display.gd" id="1_aocgv"]
-[ext_resource type="Texture2D" uid="uid://b71lhhoiesaih" path="res://Assets/HUD/progress_bar.png" id="1_ulhs6"]
-[ext_resource type="Texture2D" uid="uid://cua3nqjheoe38" path="res://Assets/HUD/progress_bar_progress.png" id="2_qdtga"]
+[ext_resource type="Script" uid="uid://0mgj3es4u661" path="res://Main/HUD/player_screen/drift_display/drift_display.gd" id="1_aocgv"]
+[ext_resource type="Texture2D" uid="uid://b71lhhoiesaih" path="res://Assets/HUD/ProgressBars/progress_bar.png" id="1_ulhs6"]
+[ext_resource type="Texture2D" uid="uid://k0myw7s71403" path="res://Assets/HUD/ProgressBars/progress_electric.png" id="3_y4g60"]
+[ext_resource type="FontFile" uid="uid://bnfvao1klcfeg" path="res://Assets/Theme/Renogare-Regular.otf" id="4_3hnpc"]
+[ext_resource type="Texture2D" uid="uid://bpbjd8jayuond" path="res://Assets/HUD/ProgressBars/thunder_animation.png" id="4_j18oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p16yy"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(0, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0f0h"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(28, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux1ue"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(56, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeam6"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(84, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpvd8"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(112, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxw1u"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(140, 0, 28, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew5ni"]
+atlas = ExtResource("4_j18oy")
+region = Rect2(168, 0, 28, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4t8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p16yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0f0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux1ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeam6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpvd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxw1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew5ni")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
 
 [node name="driftHUDControl" type="Control"]
 layout_mode = 3
@@ -40,6 +102,28 @@ text = "drift"
 [node name="driftProgressBar" type="TextureProgressBar" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-value = 9.0
+value = 100.0
 texture_under = ExtResource("1_ulhs6")
-texture_progress = ExtResource("2_qdtga")
+texture_progress = ExtResource("3_y4g60")
+
+[node name="Control" type="Control" parent="MarginContainer/driftProgressBar"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 3.0
+offset_bottom = 1.0
+
+[node name="thunderAnimatedSprite" type="AnimatedSprite2D" parent="MarginContainer/driftProgressBar/Control"]
+position = Vector2(57, 5)
+sprite_frames = SubResource("SpriteFrames_k4t8e")
+frame = 7
+frame_progress = 1.0
+centered = false
+
+[node name="lvlLabel" type="Label" parent="MarginContainer/driftProgressBar/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_3hnpc")
+text = "	lvl.0"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fgsyilf2lqgu"]
 
-[ext_resource type="Script" path="res://Main/RaceCamera/race_camera.gd" id="1_ye0bj"]
+[ext_resource type="Script" uid="uid://q5ny4xkq3ii3" path="res://Main/RaceCamera/race_camera.gd" id="1_ye0bj"]
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -3)

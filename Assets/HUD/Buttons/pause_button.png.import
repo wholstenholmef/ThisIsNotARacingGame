@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cua3nqjheoe38"
-path="res://.godot/imported/progress_bar_progress.png-eb8fdc6f9ebdeef20079d9fc51babc33.ctex"
+uid="uid://cuqae4etoydta"
+path="res://.godot/imported/pause_button.png-f35b070405e2d41c6b355a3573bbb602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/progress_bar_progress.png"
-dest_files=["res://.godot/imported/progress_bar_progress.png-eb8fdc6f9ebdeef20079d9fc51babc33.ctex"]
+source_file="res://Assets/HUD/Buttons/pause_button.png"
+dest_files=["res://.godot/imported/pause_button.png-f35b070405e2d41c6b355a3573bbb602.ctex"]
 
 [params]
 

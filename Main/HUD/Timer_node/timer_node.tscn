@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmhsufwyep0cs"]
 
-[ext_resource type="Script" path="res://Main/HUD/Timer_node/timer_node.gd" id="1_v385j"]
+[ext_resource type="Script" uid="uid://cvar5lc2qe1rs" path="res://Main/HUD/Timer_node/timer_node.gd" id="1_v385j"]
 
 [node name="TimerContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(132, 32)

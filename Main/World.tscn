@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://c4ar6do1m1y6s"]
 
 [ext_resource type="Texture2D" uid="uid://3cv54vbhaanf" path="res://Assets/Textures/checkboard.png" id="1_bev6u"]
-[ext_resource type="Script" path="res://Main/MainScripts/world.gd" id="1_cukjp"]
+[ext_resource type="Script" uid="uid://ddixckobfp0l8" path="res://Main/MainScripts/world.gd" id="1_cukjp"]
 [ext_resource type="PackedScene" uid="uid://cl6w8rohugcxc" path="res://Assets/Tracks/test.glb" id="5_xlpfv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ndq1"]

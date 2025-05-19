@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbeynm7fsffvk"]
+[gd_scene load_steps=11 format=3 uid="uid://bbeynm7fsffvk"]
 
-[ext_resource type="Script" path="res://Main/HUD/config_menu/config_menu.gd" id="1_quxbk"]
-[ext_resource type="Texture2D" uid="uid://rovmt4jr87un" path="res://Assets/HUD/Icons/gamepad.png" id="2_i2usu"]
+[ext_resource type="Script" uid="uid://dmv1val8ckwbi" path="res://Main/HUD/config_menu/config_menu.gd" id="1_quxbk"]
+[ext_resource type="PackedScene" uid="uid://jp3678liaglj" path="res://Main/HUD/config_menu_categories/config_menu_category_base.tscn" id="3_0okh6"]
+[ext_resource type="Texture2D" uid="uid://bro7sa878lm5p" path="res://Assets/HUD/Icons/audioOn.png" id="3_53dj0"]
 [ext_resource type="PackedScene" uid="uid://dlrs5ln8e3lhb" path="res://Main/HUD/config_menu_categories/volume_config_margin.tscn" id="4_4kyt3"]
-[ext_resource type="Texture2D" uid="uid://cuqae4etoydta" path="res://Assets/HUD/pause_button.png" id="7_31hr3"]
 
 [sub_resource type="Animation" id="Animation_veh50"]
 length = 0.001
@@ -163,18 +163,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_00eqr"]
 _data = {
-"RESET": SubResource("Animation_veh50"),
-"close_menu": SubResource("Animation_5k8e7"),
-"open_menu": SubResource("Animation_ogso7")
+&"RESET": SubResource("Animation_veh50"),
+&"close_menu": SubResource("Animation_5k8e7"),
+&"open_menu": SubResource("Animation_ogso7")
 }
-
-[sub_resource type="GDScript" id="GDScript_sfodn"]
-script/source = "class_name ConfigMenuCategoryScreen
-extends MarginContainer
-
-@export var category_name : String
-@export var category_icon : Texture
-"
 
 [sub_resource type="Gradient" id="Gradient_8w1u8"]
 offsets = PackedFloat32Array(0, 0.186667, 1)
@@ -188,39 +180,14 @@ fill_to = Vector2(0, 0.0121951)
 [node name="config_menu" type="CanvasLayer" node_paths=PackedStringArray("screens_array")]
 process_mode = 3
 script = ExtResource("1_quxbk")
-screens_array = [null, null]
+screens_array = [NodePath("SubViewportContainer/SubViewport/HBoxContainer/VolumeConfigMargin"), NodePath("SubViewportContainer/SubViewport/HBoxContainer/baseConfigCategory")]
 category_icons_container = NodePath("SubViewportContainer/SubViewport/footerBar/Control/MarginContainer/menuCategoryHBox")
 category_label = NodePath("SubViewportContainer/SubViewport/footerBar/Control/MarginContainer/titlePivot/configTitle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_00eqr")
+&"": SubResource("AnimationLibrary_00eqr")
 }
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 1280.0
-offset_bottom = 360.0
-theme_override_constants/separation = 0
-
-[node name="controlsConfigMargin" type="MarginContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(640, 274)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/margin_top = 10
-script = SubResource("GDScript_sfodn")
-category_name = "Controles"
-category_icon = ExtResource("2_i2usu")
-
-[node name="volumeConfigContainer" type="ScrollContainer" parent="HBoxContainer/controlsConfigMargin"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/controlsConfigMargin/volumeConfigContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="VolumeConfigMargin" parent="HBoxContainer" instance=ExtResource("4_4kyt3")]
-layout_mode = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -317,15 +284,14 @@ theme_override_font_sizes/font_size = 32
 text = "CONTROLES"
 horizontal_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
-layer = 2
-follow_viewport_enabled = true
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport"]
+offset_right = 1280.0
+offset_bottom = 360.0
+theme_override_constants/separation = 0
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
-visible = false
+[node name="VolumeConfigMargin" parent="SubViewportContainer/SubViewport/HBoxContainer" instance=ExtResource("4_4kyt3")]
+layout_mode = 2
+category_icon = ExtResource("3_53dj0")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="SubViewportContainer/SubViewport/CanvasLayer2"]
-modulate = Color(0.65834, 0.65834, 0.65834, 0.784314)
-position = Vector2(586, 6)
-texture_normal = ExtResource("7_31hr3")
-action = "pause_button"
+[node name="baseConfigCategory" parent="SubViewportContainer/SubViewport/HBoxContainer" instance=ExtResource("3_0okh6")]
+layout_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=54 format=4 uid="uid://cj0lgh51c800b"]
 
 [ext_resource type="PackedScene" uid="uid://bn4b2eieliic0" path="res://Assets/Racecar/race.glb" id="1_5gpgk"]
-[ext_resource type="Script" path="res://Main/CarNode/car_node.gd" id="1_ww58n"]
+[ext_resource type="Script" uid="uid://ckgkthpei513i" path="res://Main/CarNode/car_node.gd" id="1_ww58n"]
 [ext_resource type="PackedScene" uid="uid://baihp1uqo8w8d" path="res://Main/Nodes/ScreenEffects/cinematic_bars.tscn" id="3_f4y26"]
 [ext_resource type="AudioStream" uid="uid://d3neboyethwra" path="res://Assets/SFX/8bitdrift.wav" id="3_plo0f"]
 [ext_resource type="Texture2D" uid="uid://ckufbdklj28i3" path="res://Assets/Particles/purple_square.png" id="4_ocgml"]
@@ -99,7 +99,7 @@ size = Vector2(0.05, 1.25)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_vh2mb"]
-max_value = 1.5
+_limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0.561069, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -113,7 +113,7 @@ size = Vector2(0.1, 1.5)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_n2rug"]
-max_value = 1.5
+_limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0.561069, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -127,7 +127,7 @@ size = Vector2(0.1, 1.5)
 orientation = 0
 
 [sub_resource type="Curve" id="Curve_vbfkx"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 2.27547), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -498,6 +498,10 @@ skeleton = NodePath("")
 
 [node name="cinematicBars" parent="ScreenEffectsLayer" instance=ExtResource("3_f4y26")]
 unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 19.0
 
 [connection signal="body_entered" from="carMesh/targetArea" to="." method="_on_target_area_body_entered"]
 [connection signal="body_exited" from="carMesh/targetArea" to="." method="_on_target_area_body_exited"]

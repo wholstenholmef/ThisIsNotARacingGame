@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bgkorpnsxb4mq"]
 
-[ext_resource type="Script" path="res://Main/HUD/pause_menu/pause_menu.gd" id="1_7yoec"]
+[ext_resource type="Script" uid="uid://qydo4h2oq7l8" path="res://Main/HUD/pause_menu/pause_menu.gd" id="1_7yoec"]
 [ext_resource type="PackedScene" uid="uid://c7ssjlpdmob4j" path="res://Main/HUD/menu_button/menu_button_base.tscn" id="2_5mfjs"]
-[ext_resource type="Texture2D" uid="uid://cuqae4etoydta" path="res://Assets/HUD/pause_button.png" id="2_xa1tw"]
+[ext_resource type="Texture2D" uid="uid://cuqae4etoydta" path="res://Assets/HUD/Buttons/pause_button.png" id="2_xa1tw"]
 
 [sub_resource type="Animation" id="Animation_veh50"]
 length = 0.001
@@ -318,9 +318,9 @@ tracks/10/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_00eqr"]
 _data = {
-"RESET": SubResource("Animation_veh50"),
-"close_menu": SubResource("Animation_5k8e7"),
-"open_menu": SubResource("Animation_ogso7")
+&"RESET": SubResource("Animation_veh50"),
+&"close_menu": SubResource("Animation_5k8e7"),
+&"open_menu": SubResource("Animation_ogso7")
 }
 
 [node name="pause_menu" type="Node"]
@@ -329,7 +329,7 @@ script = ExtResource("1_7yoec")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_00eqr")
+&"": SubResource("AnimationLibrary_00eqr")
 }
 
 [node name="backgroundLayer" type="CanvasLayer" parent="."]
