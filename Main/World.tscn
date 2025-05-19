@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4ar6do1m1y6s"]
+[gd_scene load_steps=15 format=3 uid="uid://c4ar6do1m1y6s"]
 
 [ext_resource type="Texture2D" uid="uid://3cv54vbhaanf" path="res://Assets/Textures/checkboard.png" id="1_bev6u"]
 [ext_resource type="Script" uid="uid://ddixckobfp0l8" path="res://Main/MainScripts/world.gd" id="1_cukjp"]
+[ext_resource type="MeshLibrary" uid="uid://dhhkxjcexeogi" path="res://MeshLibraries/racekit.tres" id="4_abxnr"]
 [ext_resource type="PackedScene" uid="uid://cl6w8rohugcxc" path="res://Assets/Tracks/test.glb" id="5_xlpfv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6ndq1"]
@@ -92,6 +93,13 @@ disabled = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("SphereMesh_o8qp2")
 skeleton = NodePath("")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh_library = ExtResource("4_abxnr")
+data = {
+"cells": PackedInt32Array(65532, 65517, 74, 65531, 65518, 74, 65531, 65517, 74, 65531, 65520, 74, 65531, 65519, 74, 65530, 65521, 47, 65530, 65520, 74, 3, 65534, 74, 3, 65533, 74, 4, 65533, 74, 4, 65532, 74, 4, 65531, 74, 4, 65530, 74, 4, 65529, 74, 3, 65532, 74, 4, 65535, 74, 3, 65535, 74, 4, 65534, 74, 4, 65528, 74, 3, 65531, 74, 3, 65530, 74, 3, 65529, 74, 3, 65528, 74, 3, 65527, 74)
+}
 
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 

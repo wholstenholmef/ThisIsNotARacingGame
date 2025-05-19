@@ -1,0 +1,328 @@
+[gd_scene load_steps=109 format=3 uid="uid://buq3y3r1elisj"]
+
+[ext_resource type="PackedScene" uid="uid://dqubx2po42qki" path="res://Assets/RacingKit/bannerTowerGreen.glb" id="1_yaig1"]
+[ext_resource type="PackedScene" uid="uid://cqmuv7u7vo83n" path="res://Assets/RacingKit/bannerTowerRed.glb" id="2_u34bq"]
+[ext_resource type="PackedScene" uid="uid://7ksv1wdv0m8f" path="res://Assets/RacingKit/barrierRed.glb" id="3_tn8ni"]
+[ext_resource type="PackedScene" uid="uid://b0ckadeids7hu" path="res://Assets/RacingKit/barrierWall.glb" id="4_3yksv"]
+[ext_resource type="PackedScene" uid="uid://bekkgskj41cbv" path="res://Assets/RacingKit/barrierWhite.glb" id="5_42bp3"]
+[ext_resource type="PackedScene" uid="uid://cxln850mkeiul" path="res://Assets/RacingKit/billboard.glb" id="6_57fve"]
+[ext_resource type="PackedScene" uid="uid://wpf6cda05pxn" path="res://Assets/RacingKit/billboardDouble_exclusive.glb" id="7_s1arq"]
+[ext_resource type="PackedScene" uid="uid://cv3ethoe4i647" path="res://Assets/RacingKit/billboardLow.glb" id="8_5nua8"]
+[ext_resource type="PackedScene" uid="uid://hsiy20mmxxrd" path="res://Assets/RacingKit/billboardLower.glb" id="9_sc3oq"]
+[ext_resource type="PackedScene" uid="uid://dj5ltdd4bgcq1" path="res://Assets/RacingKit/camera_exclusive.glb" id="10_38plf"]
+[ext_resource type="PackedScene" uid="uid://dsejonisluss8" path="res://Assets/RacingKit/fenceCurved.glb" id="11_34rvr"]
+[ext_resource type="PackedScene" uid="uid://0ea224wgcc4f" path="res://Assets/RacingKit/fenceStraight.glb" id="12_k68ry"]
+[ext_resource type="PackedScene" uid="uid://tcny2kjgo16x" path="res://Assets/RacingKit/flagCheckers.glb" id="13_o1hl5"]
+[ext_resource type="PackedScene" uid="uid://bimd7ouej6anj" path="res://Assets/RacingKit/flagCheckersSmall.glb" id="14_5hs0c"]
+[ext_resource type="PackedScene" uid="uid://brs3ydj0vr3bm" path="res://Assets/RacingKit/flagGreen.glb" id="15_7vyqw"]
+[ext_resource type="PackedScene" uid="uid://hj104udijgd1" path="res://Assets/RacingKit/flagRed.glb" id="16_72ncu"]
+[ext_resource type="PackedScene" uid="uid://bc8odlkj7ehdw" path="res://Assets/RacingKit/flagTankco.glb" id="17_oymcq"]
+[ext_resource type="PackedScene" uid="uid://c0vqc11iej50c" path="res://Assets/RacingKit/grandStand.glb" id="18_2566m"]
+[ext_resource type="PackedScene" uid="uid://bfw88eovpria0" path="res://Assets/RacingKit/grandStandAwning.glb" id="19_mbs3h"]
+[ext_resource type="PackedScene" uid="uid://s6qjmwp2qunm" path="res://Assets/RacingKit/grandStandCovered.glb" id="20_1p7wk"]
+[ext_resource type="PackedScene" uid="uid://cyiggan531kra" path="res://Assets/RacingKit/grandStandCoveredRound.glb" id="21_72wg2"]
+[ext_resource type="PackedScene" uid="uid://brrq1ve6hh1d7" path="res://Assets/RacingKit/grandStandRound.glb" id="22_j1d7p"]
+[ext_resource type="PackedScene" uid="uid://b1q561grgkhuo" path="res://Assets/RacingKit/grass.glb" id="23_vs5aw"]
+[ext_resource type="PackedScene" uid="uid://honst70267q1" path="res://Assets/RacingKit/lightColored.glb" id="24_77hp6"]
+[ext_resource type="PackedScene" uid="uid://b5yw3rxgfxfr" path="res://Assets/RacingKit/lightPostLarge.glb" id="25_wten0"]
+[ext_resource type="PackedScene" uid="uid://b412ia7beebg4" path="res://Assets/RacingKit/lightPostModern.glb" id="26_skmju"]
+[ext_resource type="PackedScene" uid="uid://b6h3acskrhv7g" path="res://Assets/RacingKit/lightPost_exclusive.glb" id="27_ksgs5"]
+[ext_resource type="PackedScene" uid="uid://b532aug4gxldc" path="res://Assets/RacingKit/lightRed.glb" id="28_oh2do"]
+[ext_resource type="PackedScene" uid="uid://exva04f3u3yt" path="res://Assets/RacingKit/lightRedDouble.glb" id="29_pait7"]
+[ext_resource type="PackedScene" uid="uid://eye0nbfotkk8" path="res://Assets/RacingKit/overhead.glb" id="30_w2uxn"]
+[ext_resource type="PackedScene" uid="uid://q5wg21i7qx0s" path="res://Assets/RacingKit/overheadLights.glb" id="31_54fxp"]
+[ext_resource type="PackedScene" uid="uid://jxu01mkmfg4c" path="res://Assets/RacingKit/overheadRound.glb" id="32_g1wht"]
+[ext_resource type="PackedScene" uid="uid://dm2rehbbytc0j" path="res://Assets/RacingKit/overheadRoundColored.glb" id="33_k8ldm"]
+[ext_resource type="PackedScene" uid="uid://djvk30i56vkyc" path="res://Assets/RacingKit/pitsGarage.glb" id="34_kft26"]
+[ext_resource type="PackedScene" uid="uid://b6uwy5sd6c1g" path="res://Assets/RacingKit/pitsGarageClosed.glb" id="35_7i77e"]
+[ext_resource type="PackedScene" uid="uid://dagnp7a30k5vu" path="res://Assets/RacingKit/pitsGarageCorner.glb" id="36_ev5n1"]
+[ext_resource type="PackedScene" uid="uid://bejur1dxshrp3" path="res://Assets/RacingKit/pitsOffice.glb" id="37_3kvlc"]
+[ext_resource type="PackedScene" uid="uid://c7jt1f347n07g" path="res://Assets/RacingKit/pitsOfficeCorner.glb" id="38_btmdy"]
+[ext_resource type="PackedScene" uid="uid://dvubp5ofm7344" path="res://Assets/RacingKit/pitsOfficeRoof.glb" id="39_oetxm"]
+[ext_resource type="PackedScene" uid="uid://c42qj6qm40j0u" path="res://Assets/RacingKit/pylon.glb" id="40_f50gm"]
+[ext_resource type="PackedScene" uid="uid://hrdyk5galqy4" path="res://Assets/RacingKit/radarEquipment.glb" id="41_46tl6"]
+[ext_resource type="PackedScene" uid="uid://cp30lwtc6l5ni" path="res://Assets/RacingKit/rail.glb" id="42_l7jfh"]
+[ext_resource type="PackedScene" uid="uid://c6qt7skvujc8v" path="res://Assets/RacingKit/railDouble.glb" id="43_vxaal"]
+[ext_resource type="PackedScene" uid="uid://b3phlndefeu6r" path="res://Assets/RacingKit/ramp.glb" id="44_3wkuc"]
+[ext_resource type="PackedScene" uid="uid://dy0sjfi7qtnul" path="res://Assets/RacingKit/roadBump.glb" id="45_57vp3"]
+[ext_resource type="PackedScene" uid="uid://0vhwanbkb4hj" path="res://Assets/RacingKit/roadCornerBridgeLarge.glb" id="46_wv8mj"]
+[ext_resource type="PackedScene" uid="uid://dmfvptq3ftmjc" path="res://Assets/RacingKit/roadCornerBridgeLarger.glb" id="47_14sid"]
+[ext_resource type="PackedScene" uid="uid://bs43lns535xsc" path="res://Assets/RacingKit/roadCornerBridgeSmall.glb" id="48_klw3m"]
+[ext_resource type="PackedScene" uid="uid://cns7n4vgfivun" path="res://Assets/RacingKit/roadCornerLarge.glb" id="49_4vc6j"]
+[ext_resource type="PackedScene" uid="uid://c1f8i1ldlw536" path="res://Assets/RacingKit/roadCornerLargeBorder.glb" id="50_cldwu"]
+[ext_resource type="PackedScene" uid="uid://g2do5sluxn3d" path="res://Assets/RacingKit/roadCornerLargeBorderInner.glb" id="51_gl212"]
+[ext_resource type="PackedScene" uid="uid://mv6r6om8x0m2" path="res://Assets/RacingKit/roadCornerLarger.glb" id="52_usbxw"]
+[ext_resource type="PackedScene" uid="uid://cslm150rq4vlg" path="res://Assets/RacingKit/roadCornerLargerBorder.glb" id="53_5mfbp"]
+[ext_resource type="PackedScene" uid="uid://cbrnskrflsiyo" path="res://Assets/RacingKit/roadCornerLargerBorderInner.glb" id="54_3h6b5"]
+[ext_resource type="PackedScene" uid="uid://dug7ao61icy8j" path="res://Assets/RacingKit/roadCornerLargerSand.glb" id="55_acqrn"]
+[ext_resource type="PackedScene" uid="uid://c2c13jshvnpbc" path="res://Assets/RacingKit/roadCornerLargerSandInner.glb" id="56_aqib0"]
+[ext_resource type="PackedScene" uid="uid://wwnw5xjgr6bb" path="res://Assets/RacingKit/roadCornerLargerWall.glb" id="57_ygtkl"]
+[ext_resource type="PackedScene" uid="uid://bl03fx4tr8au" path="res://Assets/RacingKit/roadCornerLargerWallInner.glb" id="58_pl7l1"]
+[ext_resource type="PackedScene" uid="uid://cx2uqchqtvo8b" path="res://Assets/RacingKit/roadCornerLargeSand.glb" id="59_8hp07"]
+[ext_resource type="PackedScene" uid="uid://cy5hvi1gxm4ei" path="res://Assets/RacingKit/roadCornerLargeSandInner.glb" id="60_3agye"]
+[ext_resource type="PackedScene" uid="uid://bq2ypevj1qxch" path="res://Assets/RacingKit/roadCornerLargeWall.glb" id="61_hcm3a"]
+[ext_resource type="PackedScene" uid="uid://citua5rs7ecjl" path="res://Assets/RacingKit/roadCornerLargeWallInner.glb" id="62_dj26o"]
+[ext_resource type="PackedScene" uid="uid://bseod4nl55xhk" path="res://Assets/RacingKit/roadCornerSmall.glb" id="63_y4w2l"]
+[ext_resource type="PackedScene" uid="uid://b0nx7lcm33im6" path="res://Assets/RacingKit/roadCornerSmallBorder.glb" id="64_704fc"]
+[ext_resource type="PackedScene" uid="uid://bfs86oclhi0le" path="res://Assets/RacingKit/roadCornerSmallSand.glb" id="65_3n0rj"]
+[ext_resource type="PackedScene" uid="uid://bpg3ygjt0w2gx" path="res://Assets/RacingKit/roadCornerSmallSquare.glb" id="66_0gyqb"]
+[ext_resource type="PackedScene" uid="uid://culpm50u4v8xx" path="res://Assets/RacingKit/roadCornerSmallWall.glb" id="67_causm"]
+[ext_resource type="PackedScene" uid="uid://dk5gu1d1no5ne" path="res://Assets/RacingKit/roadCrossing.glb" id="68_88huh"]
+[ext_resource type="PackedScene" uid="uid://dotb1s5rvflc8" path="res://Assets/RacingKit/roadCurved.glb" id="69_psnk7"]
+[ext_resource type="PackedScene" uid="uid://bf3uvjr786cvp" path="res://Assets/RacingKit/roadCurvedSplit.glb" id="70_n0jmd"]
+[ext_resource type="PackedScene" uid="uid://q0rs0mc406kc" path="res://Assets/RacingKit/roadEnd.glb" id="71_a8vdc"]
+[ext_resource type="PackedScene" uid="uid://c8m3gfoawm3m7" path="res://Assets/RacingKit/roadPitEntry.glb" id="72_hoskk"]
+[ext_resource type="PackedScene" uid="uid://dlo7pax1kwgkh" path="res://Assets/RacingKit/roadPitGarage.glb" id="73_bcn61"]
+[ext_resource type="PackedScene" uid="uid://d0230wv0jpbqg" path="res://Assets/RacingKit/roadPitStraight.glb" id="74_6qgik"]
+[ext_resource type="PackedScene" uid="uid://u0vb1sgsac3t" path="res://Assets/RacingKit/roadPitStraightLong.glb" id="75_p26aa"]
+[ext_resource type="PackedScene" uid="uid://blj4n0vs4avts" path="res://Assets/RacingKit/roadRamp.glb" id="76_fdc03"]
+[ext_resource type="PackedScene" uid="uid://drhts506xw4wn" path="res://Assets/RacingKit/roadRampLong.glb" id="77_nwidj"]
+[ext_resource type="PackedScene" uid="uid://dt4ddej5dwf2q" path="res://Assets/RacingKit/roadRampLongCurved.glb" id="78_r6acq"]
+[ext_resource type="PackedScene" uid="uid://cc1m145pm0fka" path="res://Assets/RacingKit/roadRampLongCurvedWall.glb" id="79_503x2"]
+[ext_resource type="PackedScene" uid="uid://d1aujjjbg8fj6" path="res://Assets/RacingKit/roadRampLongWall.glb" id="80_gogia"]
+[ext_resource type="PackedScene" uid="uid://dxpdstlg0vgjf" path="res://Assets/RacingKit/roadRampWall.glb" id="81_mscxs"]
+[ext_resource type="PackedScene" uid="uid://7of37bfo0wod" path="res://Assets/RacingKit/roadSide.glb" id="82_7xj1e"]
+[ext_resource type="PackedScene" uid="uid://cjlq17xw3q7b3" path="res://Assets/RacingKit/roadSplit.glb" id="83_g47xc"]
+[ext_resource type="PackedScene" uid="uid://dmkx6asi0o8wq" path="res://Assets/RacingKit/roadSplitLarge.glb" id="84_6nar5"]
+[ext_resource type="PackedScene" uid="uid://djyn5rh7tilg4" path="res://Assets/RacingKit/roadSplitLarger.glb" id="85_jodqk"]
+[ext_resource type="PackedScene" uid="uid://4320rby8klme" path="res://Assets/RacingKit/roadSplitRound.glb" id="86_ybxmy"]
+[ext_resource type="PackedScene" uid="uid://ckbwbnhrm2ola" path="res://Assets/RacingKit/roadSplitRoundLarge.glb" id="87_7liw6"]
+[ext_resource type="PackedScene" uid="uid://tojlxq77s4ai" path="res://Assets/RacingKit/roadSplitSmall.glb" id="88_gywr6"]
+[ext_resource type="PackedScene" uid="uid://dvlstcjjwcjou" path="res://Assets/RacingKit/roadStart.glb" id="89_2xh1g"]
+[ext_resource type="PackedScene" uid="uid://b5woesfal8aj0" path="res://Assets/RacingKit/roadStartPositions.glb" id="90_t1qlx"]
+[ext_resource type="PackedScene" uid="uid://goem87btj8j0" path="res://Assets/RacingKit/roadStraight.glb" id="91_gym66"]
+[ext_resource type="PackedScene" uid="uid://f7smsdwwcchl" path="res://Assets/RacingKit/roadStraightArrow.glb" id="92_krwk5"]
+[ext_resource type="PackedScene" uid="uid://jewuwh3eylt7" path="res://Assets/RacingKit/roadStraightBridge.glb" id="93_166ra"]
+[ext_resource type="PackedScene" uid="uid://cn438x45iv187" path="res://Assets/RacingKit/roadStraightBridgeMid.glb" id="94_cdkms"]
+[ext_resource type="PackedScene" uid="uid://8reg1c8473mq" path="res://Assets/RacingKit/roadStraightBridgeStart.glb" id="95_dd527"]
+[ext_resource type="PackedScene" uid="uid://dmf7j62uqu6mn" path="res://Assets/RacingKit/roadStraightLong.glb" id="96_av6u4"]
+[ext_resource type="PackedScene" uid="uid://d1ylcaldcad4d" path="res://Assets/RacingKit/roadStraightLongBump.glb" id="97_norwq"]
+[ext_resource type="PackedScene" uid="uid://bokq586iwxpe7" path="res://Assets/RacingKit/roadStraightLongBumpRound.glb" id="98_fhoqr"]
+[ext_resource type="PackedScene" uid="uid://cxkun01u31dw2" path="res://Assets/RacingKit/roadStraightLongMid.glb" id="99_xdcf2"]
+[ext_resource type="PackedScene" uid="uid://eqcmn5wvi2b0" path="res://Assets/RacingKit/roadStraightSkew.glb" id="100_q1f2v"]
+[ext_resource type="PackedScene" uid="uid://dpemamxdjaa0l" path="res://Assets/RacingKit/tent.glb" id="101_4g1ru"]
+[ext_resource type="PackedScene" uid="uid://cx5daw5n0lu8b" path="res://Assets/RacingKit/tentClosed.glb" id="102_3n7bn"]
+[ext_resource type="PackedScene" uid="uid://d4nrsr5kxbxlk" path="res://Assets/RacingKit/tentClosedLong.glb" id="103_jb0j3"]
+[ext_resource type="PackedScene" uid="uid://c8ykdn0jwunr" path="res://Assets/RacingKit/tentLong.glb" id="104_fbs3o"]
+[ext_resource type="PackedScene" uid="uid://nob577ryq8u2" path="res://Assets/RacingKit/tentRoof.glb" id="105_cabom"]
+[ext_resource type="PackedScene" uid="uid://cvqecigjmq23y" path="res://Assets/RacingKit/tentRoofDouble.glb" id="106_ftbab"]
+[ext_resource type="PackedScene" uid="uid://bd2q2ucn2ddfp" path="res://Assets/RacingKit/treeLarge.glb" id="107_eftdx"]
+[ext_resource type="PackedScene" uid="uid://3qni14uvyfox" path="res://Assets/RacingKit/treeSmall.glb" id="108_esl4y"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bannerTowerGreen" parent="." instance=ExtResource("1_yaig1")]
+
+[node name="bannerTowerRed" parent="." instance=ExtResource("2_u34bq")]
+
+[node name="barrierRed" parent="." instance=ExtResource("3_tn8ni")]
+
+[node name="barrierWall" parent="." instance=ExtResource("4_3yksv")]
+
+[node name="barrierWhite" parent="." instance=ExtResource("5_42bp3")]
+
+[node name="billboard" parent="." instance=ExtResource("6_57fve")]
+
+[node name="billboardDouble_exclusive" parent="." instance=ExtResource("7_s1arq")]
+
+[node name="billboardLow" parent="." instance=ExtResource("8_5nua8")]
+
+[node name="billboardLower" parent="." instance=ExtResource("9_sc3oq")]
+
+[node name="camera_exclusive" parent="." instance=ExtResource("10_38plf")]
+
+[node name="fenceCurved" parent="." instance=ExtResource("11_34rvr")]
+
+[node name="fenceStraight" parent="." instance=ExtResource("12_k68ry")]
+
+[node name="flagCheckers" parent="." instance=ExtResource("13_o1hl5")]
+
+[node name="flagCheckersSmall" parent="." instance=ExtResource("14_5hs0c")]
+
+[node name="flagGreen" parent="." instance=ExtResource("15_7vyqw")]
+
+[node name="flagRed" parent="." instance=ExtResource("16_72ncu")]
+
+[node name="flagTankco" parent="." instance=ExtResource("17_oymcq")]
+
+[node name="grandStand" parent="." instance=ExtResource("18_2566m")]
+
+[node name="grandStandAwning" parent="." instance=ExtResource("19_mbs3h")]
+
+[node name="grandStandCovered" parent="." instance=ExtResource("20_1p7wk")]
+
+[node name="grandStandCoveredRound" parent="." instance=ExtResource("21_72wg2")]
+
+[node name="grandStandRound" parent="." instance=ExtResource("22_j1d7p")]
+
+[node name="grass" parent="." instance=ExtResource("23_vs5aw")]
+
+[node name="lightColored" parent="." instance=ExtResource("24_77hp6")]
+
+[node name="lightPostLarge" parent="." instance=ExtResource("25_wten0")]
+
+[node name="lightPostModern" parent="." instance=ExtResource("26_skmju")]
+
+[node name="lightPost_exclusive" parent="." instance=ExtResource("27_ksgs5")]
+
+[node name="lightRed" parent="." instance=ExtResource("28_oh2do")]
+
+[node name="lightRedDouble" parent="." instance=ExtResource("29_pait7")]
+
+[node name="overhead" parent="." instance=ExtResource("30_w2uxn")]
+
+[node name="overheadLights" parent="." instance=ExtResource("31_54fxp")]
+
+[node name="overheadRound" parent="." instance=ExtResource("32_g1wht")]
+
+[node name="overheadRoundColored" parent="." instance=ExtResource("33_k8ldm")]
+
+[node name="pitsGarage" parent="." instance=ExtResource("34_kft26")]
+
+[node name="pitsGarageClosed" parent="." instance=ExtResource("35_7i77e")]
+
+[node name="pitsGarageCorner" parent="." instance=ExtResource("36_ev5n1")]
+
+[node name="pitsOffice" parent="." instance=ExtResource("37_3kvlc")]
+
+[node name="pitsOfficeCorner" parent="." instance=ExtResource("38_btmdy")]
+
+[node name="pitsOfficeRoof" parent="." instance=ExtResource("39_oetxm")]
+
+[node name="pylon" parent="." instance=ExtResource("40_f50gm")]
+
+[node name="radarEquipment" parent="." instance=ExtResource("41_46tl6")]
+
+[node name="rail" parent="." instance=ExtResource("42_l7jfh")]
+
+[node name="railDouble" parent="." instance=ExtResource("43_vxaal")]
+
+[node name="ramp" parent="." instance=ExtResource("44_3wkuc")]
+
+[node name="roadBump" parent="." instance=ExtResource("45_57vp3")]
+
+[node name="roadCornerBridgeLarge" parent="." instance=ExtResource("46_wv8mj")]
+
+[node name="roadCornerBridgeLarger" parent="." instance=ExtResource("47_14sid")]
+
+[node name="roadCornerBridgeSmall" parent="." instance=ExtResource("48_klw3m")]
+
+[node name="roadCornerLarge" parent="." instance=ExtResource("49_4vc6j")]
+
+[node name="roadCornerLargeBorder" parent="." instance=ExtResource("50_cldwu")]
+
+[node name="roadCornerLargeBorderInner" parent="." instance=ExtResource("51_gl212")]
+
+[node name="roadCornerLarger" parent="." instance=ExtResource("52_usbxw")]
+
+[node name="roadCornerLargerBorder" parent="." instance=ExtResource("53_5mfbp")]
+
+[node name="roadCornerLargerBorderInner" parent="." instance=ExtResource("54_3h6b5")]
+
+[node name="roadCornerLargerSand" parent="." instance=ExtResource("55_acqrn")]
+
+[node name="roadCornerLargerSandInner" parent="." instance=ExtResource("56_aqib0")]
+
+[node name="roadCornerLargerWall" parent="." instance=ExtResource("57_ygtkl")]
+
+[node name="roadCornerLargerWallInner" parent="." instance=ExtResource("58_pl7l1")]
+
+[node name="roadCornerLargeSand" parent="." instance=ExtResource("59_8hp07")]
+
+[node name="roadCornerLargeSandInner" parent="." instance=ExtResource("60_3agye")]
+
+[node name="roadCornerLargeWall" parent="." instance=ExtResource("61_hcm3a")]
+
+[node name="roadCornerLargeWallInner" parent="." instance=ExtResource("62_dj26o")]
+
+[node name="roadCornerSmall" parent="." instance=ExtResource("63_y4w2l")]
+
+[node name="roadCornerSmallBorder" parent="." instance=ExtResource("64_704fc")]
+
+[node name="roadCornerSmallSand" parent="." instance=ExtResource("65_3n0rj")]
+
+[node name="roadCornerSmallSquare" parent="." instance=ExtResource("66_0gyqb")]
+
+[node name="roadCornerSmallWall" parent="." instance=ExtResource("67_causm")]
+
+[node name="roadCrossing" parent="." instance=ExtResource("68_88huh")]
+
+[node name="roadCurved" parent="." instance=ExtResource("69_psnk7")]
+
+[node name="roadCurvedSplit" parent="." instance=ExtResource("70_n0jmd")]
+
+[node name="roadEnd" parent="." instance=ExtResource("71_a8vdc")]
+
+[node name="roadPitEntry" parent="." instance=ExtResource("72_hoskk")]
+
+[node name="roadPitGarage" parent="." instance=ExtResource("73_bcn61")]
+
+[node name="roadPitStraight" parent="." instance=ExtResource("74_6qgik")]
+
+[node name="roadPitStraightLong" parent="." instance=ExtResource("75_p26aa")]
+
+[node name="roadRamp" parent="." instance=ExtResource("76_fdc03")]
+
+[node name="roadRampLong" parent="." instance=ExtResource("77_nwidj")]
+
+[node name="roadRampLongCurved" parent="." instance=ExtResource("78_r6acq")]
+
+[node name="roadRampLongCurvedWall" parent="." instance=ExtResource("79_503x2")]
+
+[node name="roadRampLongWall" parent="." instance=ExtResource("80_gogia")]
+
+[node name="roadRampWall" parent="." instance=ExtResource("81_mscxs")]
+
+[node name="roadSide" parent="." instance=ExtResource("82_7xj1e")]
+
+[node name="roadSplit" parent="." instance=ExtResource("83_g47xc")]
+
+[node name="roadSplitLarge" parent="." instance=ExtResource("84_6nar5")]
+
+[node name="roadSplitLarger" parent="." instance=ExtResource("85_jodqk")]
+
+[node name="roadSplitRound" parent="." instance=ExtResource("86_ybxmy")]
+
+[node name="roadSplitRoundLarge" parent="." instance=ExtResource("87_7liw6")]
+
+[node name="roadSplitSmall" parent="." instance=ExtResource("88_gywr6")]
+
+[node name="roadStart" parent="." instance=ExtResource("89_2xh1g")]
+
+[node name="roadStartPositions" parent="." instance=ExtResource("90_t1qlx")]
+
+[node name="roadStraight" parent="." instance=ExtResource("91_gym66")]
+
+[node name="roadStraightArrow" parent="." instance=ExtResource("92_krwk5")]
+
+[node name="roadStraightBridge" parent="." instance=ExtResource("93_166ra")]
+
+[node name="roadStraightBridgeMid" parent="." instance=ExtResource("94_cdkms")]
+
+[node name="roadStraightBridgeStart" parent="." instance=ExtResource("95_dd527")]
+
+[node name="roadStraightLong" parent="." instance=ExtResource("96_av6u4")]
+
+[node name="roadStraightLongBump" parent="." instance=ExtResource("97_norwq")]
+
+[node name="roadStraightLongBumpRound" parent="." instance=ExtResource("98_fhoqr")]
+
+[node name="roadStraightLongMid" parent="." instance=ExtResource("99_xdcf2")]
+
+[node name="roadStraightSkew" parent="." instance=ExtResource("100_q1f2v")]
+
+[node name="tent" parent="." instance=ExtResource("101_4g1ru")]
+
+[node name="tentClosed" parent="." instance=ExtResource("102_3n7bn")]
+
+[node name="tentClosedLong" parent="." instance=ExtResource("103_jb0j3")]
+
+[node name="tentLong" parent="." instance=ExtResource("104_fbs3o")]
+
+[node name="tentRoof" parent="." instance=ExtResource("105_cabom")]
+
+[node name="tentRoofDouble" parent="." instance=ExtResource("106_ftbab")]
+
+[node name="treeLarge" parent="." instance=ExtResource("107_eftdx")]
+
+[node name="treeSmall" parent="." instance=ExtResource("108_esl4y")]

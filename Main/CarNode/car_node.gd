@@ -5,32 +5,33 @@ signal gyro_movement_toggled
 
 @export var player_id : int = 1
 @export_color_no_alpha var mesh_color = Color.WHITE
+@onready var car_mesh = $Jupiter5
+@onready var car_body_mesh = car_mesh.get_node("mainCar")
+@onready var ground_ray = car_mesh.get_node("RayCast3D")
+@onready var spark_vfx_node = car_mesh.get_node("SparkVFX")
 
 @export_category("VFX Particles")
-@onready var white_sparks_explosion_VFX = $carMesh/SparkVFX/whiteSparks
-@onready var blue_sparks_VFX = $carMesh/SparkVFX/blueSparks
-@onready var fire_sparks_VFX = $carMesh/SparkVFX/fireSparks
-@onready var super_sparks_VFX = $carMesh/SparkVFX/superSparks
-@onready var smoke_cloud_VFX = $carMesh/SparkVFX/smokeCloud
-@onready var black_smoke_cloud_VFX = $carMesh/SparkVFX/blackSmokeCloud
-@onready var smoke_trail_VFX = $carMesh/SparkVFX/smokeTrail
-@onready var black_smoke_trail_VFX = $carMesh/SparkVFX/blackSmokeTrail
+@onready var white_sparks_explosion_VFX = spark_vfx_node.get_node("whiteSparks")
+@onready var blue_sparks_VFX            = spark_vfx_node.get_node("blueSparks")
+@onready var fire_sparks_VFX            = spark_vfx_node.get_node("fireSparks")
+@onready var super_sparks_VFX           = spark_vfx_node.get_node("superSparks")
+@onready var smoke_cloud_VFX            = spark_vfx_node.get_node("smokeCloud")
+@onready var black_smoke_cloud_VFX      = spark_vfx_node.get_node("blackSmokeCloud")
+@onready var smoke_trail_VFX            = spark_vfx_node.get_node("smokeTrail")
+@onready var black_smoke_trail_VFX      = spark_vfx_node.get_node("blackSmokeTrail")
+#@onready var car_mesh = $carMesh
 
-@onready var ground_ray = $carMesh/RayCast3D
-@onready var spark_vfx_node = $carMesh/SparkVFX
-@onready var car_mesh = $carMesh
-@onready var car_body_mesh = $carMesh/body
-
+#@onready var car_body_mesh = $carMesh/body
+@onready var driftSFX = spark_vfx_node.get_node("driftSFX")
 @onready var motorSFX = $SFX/motorSFX
-@onready var driftSFX = $carMesh/SparkVFX/driftSFX
 @onready var turboSFX = $SFX/turboSFX
 @onready var sparkSFX = $SFX/sparkSFX
 @onready var fireSFX = $SFX/fireSFX
 @onready var lightningSFX = $SFX/lightningSFX
 
-@onready var small_turbo_VFX = $carMesh/TurboVFX/smallTurboVFX
-@onready var fire_turbo_VFX = $carMesh/TurboVFX/FireTurboVFX
-@onready var square_turbo_VFX = $carMesh/TurboVFX/squareTurboVFX
+@onready var small_turbo_VFX = car_mesh.get_node("TurboVFX/smallTurboVFX")
+@onready var fire_turbo_VFX = car_mesh.get_node("TurboVFX/FireTurboVFX")
+@onready var square_turbo_VFX = car_mesh.get_node("TurboVFX/squareTurboVFX") 
 var current_turbo_VFX : CPUParticles3D
 
 var gyro_movement := false
@@ -49,7 +50,7 @@ var normal_turn_speed : float = 2
 var drift_turn_speed : float = 0.1
 var turn_stop_limit : float = 0.75
 var mesh_tilt : int = 35
-var mesh_offset = Vector3(0 , -1.0, 0)
+var mesh_offset = Vector3(0 , 0.6, 0)
 
 var automatic_driving := false
 var accelerate_input : float = 0
@@ -82,8 +83,10 @@ func _ready() -> void:
 	current_camera = get_viewport().get_camera_3d()
 	$SFX/motorSFX.play()
 	unemit_sparks_VFX()
-	$carMesh/body.get_active_material(0).albedo_color = mesh_color
+	#$carMesh/body.get_active_material(0).albedo_color = mesh_color
 	load_user_prefs()
+	await get_tree().create_timer(0.1).timeout
+	#car_body_mesh_offset = car_mesh.position
 
 func load_user_prefs() -> void:
 	user_prefs_instance = userPrefs.load_or_create()
@@ -91,23 +94,29 @@ func load_user_prefs() -> void:
 	gyro_sensibility = user_prefs_instance.gyro_sensibility
 
 func _physics_process(delta: float) -> void:
-	$carMesh.position = self.position + mesh_offset
+	car_mesh.position = self.position - mesh_offset
 	wheel_animation(delta)
 	#$carMesh.rotation_degrees.z = clamp($carMesh.rotation_degrees.z, -25, 25)
 
 func wheel_animation(delta) -> void:
-	$"carMesh/wheel-front-left".rotation.y = steer_input
-	$"carMesh/wheel-front-right".rotation.y = steer_input
+	#$"carMesh/wheel-front-left".rotation.y = steer_input
+	#$"carMesh/wheel-front-right".rotation.y = steer_input
+	$Jupiter5/frontWheelL.rotation.y = steer_input
+	$Jupiter5/frontWheelR.rotation.y = steer_input
 	
-	$"carMesh/wheel-back-left".rotation.x += linear_velocity.length() * delta
-	$"carMesh/wheel-back-right".rotation.x += linear_velocity.length() * delta
-	$"carMesh/wheel-front-left".rotation.x += linear_velocity.length() * delta 
-	$"carMesh/wheel-front-right".rotation.x += linear_velocity.length() * delta
+	$Jupiter5/frontWheelL.rotation.x += linear_velocity.length() * delta
+	$Jupiter5/frontWheelR.rotation.x += linear_velocity.length() * delta
+	$Jupiter5/backWheelL.rotation.x += linear_velocity.length() * delta
+	$Jupiter5/backWheelR.rotation.x += linear_velocity.length() * delta
+	#$"carMesh/wheel-back-left".rotation.x += linear_velocity.length() * delta
+	#$"carMesh/wheel-back-right".rotation.x += linear_velocity.length() * delta
+	#$"carMesh/wheel-front-left".rotation.x += linear_velocity.length() * delta 
+	#$"carMesh/wheel-front-right".rotation.x += linear_velocity.length() * delta
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if ground_ray.is_colliding():
 		if linear_velocity.length() <= max_velocity+1: 
-			apply_central_force($carMesh.global_transform.basis.z * accelerate_input)
+			apply_central_force(car_mesh.global_transform.basis.z * accelerate_input)
 	#print(linear_velocity)
 
 func respawn(marker_position : Vector3) -> void:
@@ -118,7 +127,7 @@ func respawn(marker_position : Vector3) -> void:
 	self.position = marker_position
 
 func _process(delta):
-	$carMesh/TurboVFX/squareTurboVFX.rotation.z += delta * 3
+	square_turbo_VFX.rotation.z += delta * 3
 	motor_SFX_effect()
 	get_input()
 	if !ground_ray.is_colliding():
@@ -137,7 +146,7 @@ func _process(delta):
 		#Model tilting
 		var t = -steer_input * linear_velocity.length() / mesh_tilt
 		car_body_mesh.rotation.z = lerp(car_body_mesh.rotation.z, t, 5.0 * delta)
-		car_body_mesh.rotation_degrees.z = clamp(car_body_mesh.rotation_degrees.z, -45, 45)
+		car_body_mesh.rotation_degrees.z = -clamp(car_body_mesh.rotation_degrees.z, -45, 45)
 		#Align y to ground
 		if ground_ray.is_colliding():
 			var n = ground_ray.get_collision_normal()
@@ -156,13 +165,13 @@ func _process(delta):
 		
 		
 		if drift_direction == 1:
-			$carMesh/SparkVFX.position = $carMesh/RightTireMarker.position
+			spark_vfx_node.position = $Jupiter5/RightTireMarker.position
 			steer_input = 0
 			#steer_input = clamp(steer_input, -9, 0)
 			#print(steer_input)
 			#steering = clamp(steering, 0, drift_steering)
 		elif drift_direction == -1:
-			$carMesh/SparkVFX.position = $carMesh/LeftTireMarker.position
+			spark_vfx_node.position = $Jupiter5/LeftTireMarker.position
 			steer_input = clamp(steer_input, 0, 9)
 			#steering = clamp(steering, 0, drift_steering)
 		#if steer_input == 0:
@@ -295,7 +304,7 @@ func boost(_drift_time) -> void:
 	is_boosting = true
 	$boostTimer.wait_time = current_boost_duration
 	$boostTimer.start()
-	apply_central_impulse($carMesh.global_transform.basis.z * (accelerate_input/10))
+	apply_central_impulse(car_mesh.global_transform.basis.z * (accelerate_input/10))
 	
 	turboSFX.pitch_scale = randf_range(0.9, 1.1)
 	turboSFX.play()
