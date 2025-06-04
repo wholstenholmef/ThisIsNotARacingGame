@@ -1,0 +1,205 @@
+[gd_scene load_steps=13 format=3 uid="uid://bece7ffvmgc8t"]
+
+[ext_resource type="Script" uid="uid://bmnspn8baln8y" path="res://Main/intro_cinematic.gd" id="1_mfvx8"]
+[ext_resource type="Shader" uid="uid://nwemup55v2oo" path="res://Shaders/Dither.gdshader" id="2_qysek"]
+[ext_resource type="Texture2D" uid="uid://biqbi0jmwdy68" path="res://Assets/Theme/ErikksonWhite2x.png" id="3_ke28f"]
+[ext_resource type="Texture2D" uid="uid://cyqjfyab6oas0" path="res://Assets/Theme/devSeedLogo.png" id="4_ke28f"]
+[ext_resource type="Texture2D" uid="uid://byplwaocnmh0m" path="res://Assets/Theme/USB.png" id="5_b2vvm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2vvm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ke28f"]
+shader = ExtResource("2_qysek")
+shader_parameter/colors = 0.0
+shader_parameter/dither = 0.0
+
+[sub_resource type="Animation" id="Animation_cku58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logos/usbLogo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logos/erikksonLogo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logos/devSeedLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logos/erikksonLogo:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qysek"]
+resource_name = "intro"
+length = 5.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VideoStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logos/usbLogo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.1, 1.6, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logos/erikksonLogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1, 2.6, 3.1, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logos/erikksonLogo:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.1, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Logos/devSeedLogo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_voyqk"]
+_data = {
+&"RESET": SubResource("Animation_cku58"),
+&"intro": SubResource("Animation_qysek")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_voyqk"]
+shader = ExtResource("2_qysek")
+shader_parameter/colors = 8.0
+shader_parameter/dither = 0.1
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_bc7w5"]
+file = "res://Cinematics/intro.ogv"
+
+[node name="Control" type="MarginContainer"]
+material = SubResource("ShaderMaterial_b2vvm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfvx8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ke28f")
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logos" type="Control" parent="."]
+layout_mode = 2
+
+[node name="erikksonLogo" type="TextureRect" parent="Logos"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("3_ke28f")
+stretch_mode = 3
+
+[node name="devSeedLogo" type="TextureRect" parent="Logos"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("4_ke28f")
+stretch_mode = 3
+
+[node name="usbLogo" type="TextureRect" parent="Logos"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("5_b2vvm")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_voyqk")
+}
+autoplay = "intro"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+material = SubResource("ShaderMaterial_voyqk")
+layout_mode = 2
+stream = SubResource("VideoStreamTheora_bc7w5")
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

@@ -1,0 +1,256 @@
+[gd_scene load_steps=11 format=3 uid="uid://th8gft0an61t"]
+
+[ext_resource type="PackedScene" uid="uid://d3n41678oo2cr" path="res://Tracks/MagicSwamp/SwampTrack.glb" id="1_gyjnw"]
+[ext_resource type="Script" uid="uid://dex370ti0asrd" path="res://Main/Menus/TrackSelectionMenu/track_selection_margin.gd" id="1_nlcoy"]
+[ext_resource type="PackedScene" uid="uid://chveb6m728lyp" path="res://Tracks/Desert/track.glb" id="2_nlcoy"]
+[ext_resource type="PackedScene" uid="uid://btd277p1k3owv" path="res://Tracks/Interspace8/interspace8.glb" id="3_gmbs4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6xx6o"]
+viewport_path = NodePath("viewportTrack1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uawlm"]
+viewport_path = NodePath("viewportTrack2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ecs8"]
+viewport_path = NodePath("viewportTrack3")
+
+[sub_resource type="Animation" id="Animation_rt6d6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivotDesert:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("interspace8:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivotSwamp:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0s42b"]
+resource_name = "loop"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivotDesert:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("interspace8:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pivotSwamp:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xxnch"]
+_data = {
+&"RESET": SubResource("Animation_rt6d6"),
+&"loop": SubResource("Animation_0s42b")
+}
+
+[node name="trackSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nlcoy")
+
+[node name="trackSelectionMargin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="trackSelectionMargin"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Control" type="Control" parent="trackSelectionMargin/HBoxContainer"]
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+
+[node name="swamp" type="TextureButton" parent="trackSelectionMargin/HBoxContainer/Control" groups=["menu_button"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+offset_right = 164.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_bottom = NodePath("../../../MarginContainer/confirmButton")
+texture_normal = SubResource("ViewportTexture_6xx6o")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Control2" type="Control" parent="trackSelectionMargin/HBoxContainer"]
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+
+[node name="desert" type="TextureButton" parent="trackSelectionMargin/HBoxContainer/Control2" groups=["menu_button"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+offset_right = 164.0
+offset_bottom = 164.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_bottom = NodePath("../../../MarginContainer/confirmButton")
+texture_normal = SubResource("ViewportTexture_uawlm")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Control3" type="Control" parent="trackSelectionMargin/HBoxContainer"]
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+
+[node name="interspace" type="TextureButton" parent="trackSelectionMargin/HBoxContainer/Control3" groups=["menu_button"]]
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+offset_right = 164.0
+offset_bottom = 164.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_bottom = NodePath("../../../MarginContainer/confirmButton")
+texture_normal = SubResource("ViewportTexture_5ecs8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="trackSelectionMargin"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="mapLabel" type="RichTextLabel" parent="trackSelectionMargin/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 32
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][wave]Pantano mistico"
+
+[node name="confirmButton" type="Button" parent="trackSelectionMargin/MarginContainer" groups=["menu_button"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_neighbor_top = NodePath("../../HBoxContainer/Control2/desert")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/Control2/desert")
+theme_override_font_sizes/font_size = 32
+text = "¡OK!"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, -2, 4.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_xxnch")
+}
+autoplay = "loop"
+
+[node name="pivotSwamp" type="Marker3D" parent="Node3D"]
+
+[node name="SwampTrack" parent="Node3D/pivotSwamp" instance=ExtResource("1_gyjnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+
+[node name="pivotDesert" type="Marker3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2000, 0, 0)
+
+[node name="track" parent="Node3D/pivotDesert" instance=ExtResource("2_nlcoy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.4277, 0, -168.471)
+
+[node name="interspace8" parent="Node3D" instance=ExtResource("3_gmbs4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, 0)
+
+[node name="viewportTrack1" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="Camera3D" type="Camera3D" parent="viewportTrack1"]
+transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866026, 0.5, 8.74228e-08, 0.5, -0.866026, 0, 0, 0)
+current = true
+fov = 80.5
+
+[node name="viewportTrack2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="Camera3D" type="Camera3D" parent="viewportTrack2"]
+transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 10, 0, 0)
+current = true
+
+[node name="viewportTrack3" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="Camera3D" type="Camera3D" parent="viewportTrack3"]
+transform = Transform3D(-1, 4.37114e-08, -7.57104e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 20, 0, 0)
+current = true
+fov = 51.4
+
+[connection signal="pressed" from="trackSelectionMargin/HBoxContainer/Control/swamp" to="." method="_on_swamp_pressed"]
+[connection signal="pressed" from="trackSelectionMargin/HBoxContainer/Control2/desert" to="." method="_on_desert_pressed"]
+[connection signal="pressed" from="trackSelectionMargin/HBoxContainer/Control3/interspace" to="." method="_on_interspace_pressed"]
+[connection signal="pressed" from="trackSelectionMargin/MarginContainer/confirmButton" to="." method="_on_confirm_button_pressed"]

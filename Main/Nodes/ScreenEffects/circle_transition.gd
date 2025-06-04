@@ -1,12 +1,17 @@
-extends Node2D
+extends Control
+
+@export var fade_in_on_startup : bool = true
 
 var tweener 
 signal transition_finished
 
 func _ready() -> void:
 	$ColorRect.show()
-	$ColorRect.material.set_shader_parameter("shader_parameter/circle_size", 0)
-	fade_in()
+	$ColorRect.material.set_shader_parameter("material:shader_parameter/circle_size", 1.05)
+	if fade_in_on_startup:
+		fade_in()
+	$ColorRect.set_deferred("material:shader_parameter/screen_width", get_viewport().size.x)
+	$ColorRect.set_deferred("material:shader_parameter/screen_width", get_viewport().size.y)
 
 func fade_in() -> void:
 	if tweener:

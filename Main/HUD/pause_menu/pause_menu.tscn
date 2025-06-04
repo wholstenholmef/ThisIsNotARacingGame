@@ -323,8 +323,14 @@ _data = {
 &"open_menu": SubResource("Animation_ogso7")
 }
 
-[node name="pause_menu" type="Node"]
+[node name="pause_menu" type="Control"]
 process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7yoec")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -356,6 +362,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1e-05)
 pivot_offset = Vector2(0, 180)
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="buttonsCanvasLayer/Control"]
 layout_mode = 0
@@ -365,6 +372,7 @@ offset_right = 712.0
 offset_bottom = 362.0
 rotation = -0.261799
 pivot_offset = Vector2(0, 66)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="buttonsCanvasLayer/Control"]
@@ -375,9 +383,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.5
-offset_top = -100.0
+offset_top = -28.5
 offset_right = 86.5
-offset_bottom = -43.0
+offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0)
@@ -402,16 +410,17 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 
 [node name="resumeButton" parent="buttonsCanvasLayer/Control/VBoxContainer" instance=ExtResource("2_5mfjs")]
+unique_name_in_owner = true
 layout_mode = 2
-button_text = "Resumir"
+text = "Resumir"
 
 [node name="optionsButton" parent="buttonsCanvasLayer/Control/VBoxContainer" instance=ExtResource("2_5mfjs")]
 layout_mode = 2
-button_text = "Preferencias"
+text = "Opciones"
 
 [node name="quitButton" parent="buttonsCanvasLayer/Control/VBoxContainer" instance=ExtResource("2_5mfjs")]
 layout_mode = 2
-button_text = "Salir"
+text = "Salir a menu"
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -424,3 +433,5 @@ action = "pause_button"
 [connection signal="pressed" from="buttonsCanvasLayer/Control/VBoxContainer/resumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="buttonsCanvasLayer/Control/VBoxContainer/optionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="buttonsCanvasLayer/Control/VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="buttonsCanvasLayer/Control/VBoxContainer/quitButton"]

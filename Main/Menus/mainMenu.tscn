@@ -1,0 +1,1360 @@
+[gd_scene load_steps=49 format=3 uid="uid://bg04lmfl01rac"]
+
+[ext_resource type="Script" uid="uid://bo7iq8h3jyuw4" path="res://Main/Menus/main_menu.gd" id="1_71xl0"]
+[ext_resource type="Texture2D" uid="uid://cwlqtwautoqgl" path="res://Assets/Images/poster.png" id="1_alvgd"]
+[ext_resource type="AudioStream" uid="uid://445ptk33wmte" path="res://Assets/SFX/powerUp.wav" id="2_0f1as"]
+[ext_resource type="Shader" uid="uid://bv5vmyftpweqn" path="res://Shaders/circle_transition.gdshader" id="2_i8rid"]
+[ext_resource type="FontFile" uid="uid://6mpel3hc5t40" path="res://Assets/Theme/Blck.ttf" id="3_71xl0"]
+[ext_resource type="PackedScene" uid="uid://c2mfovy28t82i" path="res://Main/racerCharacter/bael.tscn" id="3_giqgu"]
+[ext_resource type="Script" uid="uid://dp8nvyind0e3o" path="res://Main/Menus/camera2D/camera_2d.gd" id="4_6ngl3"]
+[ext_resource type="PackedScene" uid="uid://chu0clu8pjyn4" path="res://Main/racerCharacter/neptune.tscn" id="4_ilwfc"]
+[ext_resource type="PackedScene" uid="uid://dlotpdr0tligu" path="res://Main/racerCharacter/Douche.tscn" id="5_ilwfc"]
+[ext_resource type="Shader" uid="uid://b7mnn53u82vpc" path="res://Main/Menus/scrolling.gdshader" id="5_k1nn2"]
+[ext_resource type="AudioStream" uid="uid://bs5esjlmpmgh2" path="res://Assets/SFX/retro_explosion.wav" id="6_6ngl3"]
+[ext_resource type="Texture2D" uid="uid://daj3s2kqqffpj" path="res://Assets/Backgrounds/purple_background.png" id="6_yodba"]
+[ext_resource type="PackedScene" uid="uid://blb16i07t5to8" path="res://Main/Nodes/ScreenEffects/circle_transition.tscn" id="10_385q5"]
+[ext_resource type="Texture2D" uid="uid://c62dg3t0sguxj" path="res://Assets/HUD/Icons/Players/singleplayer.png" id="10_dnm3t"]
+[ext_resource type="Texture2D" uid="uid://euedk45w6v6i" path="res://Assets/Racers/Portraits/zael_portait.png" id="10_xsxv4"]
+[ext_resource type="Texture2D" uid="uid://dadtcf8efwymq" path="res://Assets/Racers/Portraits/neptune_portrait.png" id="11_6qh7w"]
+[ext_resource type="Texture2D" uid="uid://3d0p6ay6ow5o" path="res://Assets/HUD/Icons/Players/multiplayer.png" id="11_n25ld"]
+[ext_resource type="Shader" uid="uid://nwemup55v2oo" path="res://Shaders/Dither.gdshader" id="11_rtx1i"]
+[ext_resource type="Texture2D" uid="uid://bkgtwen8qpddw" path="res://Assets/HUD/Icons/Players/massiveMultiplayer.png" id="12_l12jc"]
+[ext_resource type="Texture2D" uid="uid://b7xwbv3xckjgr" path="res://Assets/HUD/Icons/Players/fourplayers.png" id="13_p5ago"]
+[ext_resource type="Script" uid="uid://ckbv3sbvmerpc" path="res://Main/Menus/character_selection_margin.gd" id="14_psx1k"]
+[ext_resource type="PackedScene" uid="uid://th8gft0an61t" path="res://Main/Menus/TrackSelectionMenu/track_selection_margin.tscn" id="18_b1gpa"]
+[ext_resource type="Texture2D" uid="uid://dd138onvy2dl" path="res://Assets/Racers/Portraits/captain_douche.png" id="18_o534s"]
+[ext_resource type="Texture2D" uid="uid://ofek0gmxot2i" path="res://Assets/HUD/pointers/hand_point.png" id="19_b1gpa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_giqgu"]
+shader = ExtResource("11_rtx1i")
+shader_parameter/colors = 2.321
+shader_parameter/dither = 0.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_psx1k"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_b1gpa"]
+sky_material = SubResource("ProceduralSkyMaterial_psx1k")
+
+[sub_resource type="Environment" id="Environment_o534s"]
+background_mode = 2
+sky = SubResource("Sky_b1gpa")
+tonemap_mode = 2
+
+[sub_resource type="Animation" id="Animation_yodba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/backgroundMargin/whiteBackground:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-250, -64)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:theme_override_constants/outline_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/backgroundMargin/purpleCheckers:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-166, 127)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewportContainer/SubViewport/gameSelectMargin:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SubViewportContainer/SubViewport/gameSelectMargin:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0f1as"]
+resource_name = "intro"
+length = 1.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/backgroundMargin/whiteBackground:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.25, 1.85),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 1.05]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Camera2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.25],
+"method": &"add_trauma"
+}, {
+"args": [0.25],
+"method": &"add_trauma"
+}, {
+"args": [0.25],
+"method": &"add_trauma"
+}, {
+"args": [0.25],
+"method": &"add_trauma"
+}, {
+"args": [0.25],
+"method": &"add_trauma"
+}, {
+"args": [0.25],
+"method": &"add_trauma"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.25, 1.45, 1.55, 1.85),
+"transitions": PackedFloat32Array(0.5, 2, 2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(0.7, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.25, 1.55, 1.85),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(-250, -64), Vector2(-250, -64), Vector2(-250, -177.77)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:theme_override_constants/outline_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.25, 1.55, 1.85),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [90, 90, 0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.25, 1.85),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_explosion_sfx"
+}, {
+"args": [],
+"method": &"play_explosion_sfx"
+}, {
+"args": [],
+"method": &"play_explosion_sfx"
+}, {
+"args": [],
+"method": &"play_explosion_sfx"
+}, {
+"args": [],
+"method": &"play_explosion_sfx"
+}]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SFX/powerupSFX")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_0f1as")
+}],
+"times": PackedFloat32Array(1.25)
+}
+tracks/8/use_blend = true
+
+[sub_resource type="Animation" id="Animation_k1nn2"]
+resource_name = "menu_backdrop"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/backgroundMargin/whiteBackground:material:shader_parameter/circle_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.05]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/backgroundMargin/purpleCheckers:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784314)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/titleLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-250, -177.77), Vector2(-250, -277.045)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-166, 127), Vector2(-166, 193.755)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/gameSelectMargin:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewportContainer/SubViewport/gameSelectMargin:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "animation"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/gameSelectMargin/gameSelectAnimationPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": PackedStringArray("intro"),
+"times": PackedFloat32Array(0.25)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k1nn2"]
+_data = {
+&"RESET": SubResource("Animation_yodba"),
+&"intro": SubResource("Animation_0f1as"),
+&"menu_backdrop": SubResource("Animation_k1nn2")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilwfc"]
+shader = ExtResource("11_rtx1i")
+shader_parameter/colors = 8.0
+shader_parameter/dither = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_385q5"]
+shader = ExtResource("2_i8rid")
+shader_parameter/circle_size = 0.0
+shader_parameter/screen_width = 640.0
+shader_parameter/screen_height = 360.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtx1i"]
+shader = ExtResource("5_k1nn2")
+shader_parameter/x_speed = 0.05
+shader_parameter/y_speed = 0.025
+
+[sub_resource type="Gradient" id="Gradient_i8rid"]
+offsets = PackedFloat32Array(0, 0.219697, 0.795455, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_71xl0"]
+gradient = SubResource("Gradient_i8rid")
+width = 332
+
+[sub_resource type="Animation" id="Animation_o534s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:theme_override_constants/separation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%onePlayerGame:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Control2/twoPlayerGame:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Control3/threePlayerGame:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Control4/fourPlayerGame:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%onePlayerGame:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxContainer/Control2/twoPlayerGame:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HBoxContainer/Control3/threePlayerGame:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HBoxContainer/Control4/fourPlayerGame:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_psx1k"]
+resource_name = "fade"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%onePlayerGame:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 64)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/Control2/twoPlayerGame:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -64)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Control3/threePlayerGame:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 64)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Control4/fourPlayerGame:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -64)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%onePlayerGame:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer/Control2/twoPlayerGame:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxContainer/Control3/threePlayerGame:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HBoxContainer/Control4/fourPlayerGame:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b1gpa"]
+resource_name = "intro"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:theme_override_constants/separation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [-130, -280, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdqib"]
+_data = {
+&"RESET": SubResource("Animation_o534s"),
+&"fade": SubResource("Animation_psx1k"),
+&"intro": SubResource("Animation_b1gpa")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dnm3t"]
+viewport_path = NodePath("Node3D/viewportPlayer1")
+
+[sub_resource type="Gradient" id="Gradient_psx1k"]
+offsets = PackedFloat32Array(0, 0.273333, 0.74, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1gpa"]
+gradient = SubResource("Gradient_psx1k")
+width = 164
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1whsm"]
+viewport_path = NodePath("Node3D/viewportPlayer3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n25ld"]
+viewport_path = NodePath("Node3D/viewportPlayer2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l47nh"]
+viewport_path = NodePath("Node3D/viewportPlayer4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_124fu"]
+resource_local_to_scene = true
+shader = ExtResource("2_i8rid")
+shader_parameter/circle_size = 1.05
+shader_parameter/screen_width = 640.0
+shader_parameter/screen_height = 360.0
+
+[node name="MainMenu" type="MarginContainer"]
+material = SubResource("ShaderMaterial_giqgu")
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_71xl0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o534s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k1nn2")
+}
+autoplay = "intro"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ilwfc")
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+anchor_mode = 0
+script = ExtResource("4_6ngl3")
+
+[node name="backgroundMargin" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_constants/margin_left = -12
+theme_override_constants/margin_top = -12
+theme_override_constants/margin_right = -12
+theme_override_constants/margin_bottom = -12
+
+[node name="background" type="TextureRect" parent="SubViewportContainer/SubViewport/backgroundMargin"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_alvgd")
+expand_mode = 1
+
+[node name="whiteBackground" type="ColorRect" parent="SubViewportContainer/SubViewport/backgroundMargin"]
+material = SubResource("ShaderMaterial_385q5")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="purpleCheckers" type="TextureRect" parent="SubViewportContainer/SubViewport/backgroundMargin"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rtx1i")
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_yodba")
+expand_mode = 1
+
+[node name="titleScreenMargin" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/titleScreenMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="titleLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/titleScreenMargin/Control"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 128)
+layout_mode = 2
+offset_left = -250.0
+offset_top = -64.0
+offset_right = 250.0
+offset_bottom = 64.0
+pivot_offset = Vector2(250, 64)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_71xl0")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center][wave amp=75 freq=5 connected=0]TAARG"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="inputLabel" type="MarginContainer" parent="SubViewportContainer/SubViewport/titleScreenMargin/Control"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(332, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = 127.0
+offset_right = 166.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel"]
+custom_minimum_size = Vector2(116.97, 40)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_71xl0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/titleScreenMargin/Control/inputLabel"]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center][pulse]Presiona
+cualquier boton"
+
+[node name="gameSelectMargin" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="gameSelectAnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/gameSelectMargin"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_wdqib")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/gameSelectMargin"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer"]
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+
+[node name="onePlayerGame" type="Button" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control" groups=["menu_button"]]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+offset_top = 64.0
+offset_right = 132.0
+offset_bottom = 196.0
+pivot_offset = Vector2(100, 100)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Control4/fourPlayerGame")
+focus_neighbor_right = NodePath("../../Control2/twoPlayerGame")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control/onePlayerGame"]
+clip_contents = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 121.0
+offset_right = 145.0
+offset_bottom = 164.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][wave]1 jugador"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control/onePlayerGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_dnm3t")
+
+[node name="Control2" type="Control" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer"]
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+
+[node name="twoPlayerGame" type="Button" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control2" groups=["menu_button"]]
+texture_filter = 1
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+offset_top = -64.0
+offset_right = 132.0
+offset_bottom = 68.0
+pivot_offset = Vector2(100, 100)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Control/onePlayerGame")
+focus_neighbor_right = NodePath("../../Control3/threePlayerGame")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control2/twoPlayerGame"]
+clip_contents = false
+layout_mode = 0
+offset_left = -14.0
+offset_top = 121.0
+offset_right = 146.0
+offset_bottom = 164.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][wave]2 jugadores"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control2/twoPlayerGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_n25ld")
+
+[node name="Control3" type="Control" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer"]
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+
+[node name="threePlayerGame" type="Button" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control3" groups=["menu_button"]]
+texture_filter = 1
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+offset_top = 64.0
+offset_right = 132.0
+offset_bottom = 196.0
+pivot_offset = Vector2(100, 100)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Control2/twoPlayerGame")
+focus_neighbor_right = NodePath("../../Control4/fourPlayerGame")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control3/threePlayerGame"]
+clip_contents = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 121.0
+offset_right = 145.0
+offset_bottom = 164.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][wave]3 jugadores"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control3/threePlayerGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_l12jc")
+
+[node name="Control4" type="Control" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer"]
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+
+[node name="fourPlayerGame" type="Button" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control4" groups=["menu_button"]]
+texture_filter = 1
+custom_minimum_size = Vector2(132, 132)
+layout_mode = 2
+offset_top = -64.0
+offset_right = 132.0
+offset_bottom = 68.0
+pivot_offset = Vector2(100, 100)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Control3/threePlayerGame")
+focus_neighbor_right = NodePath("../../Control/onePlayerGame")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control4/fourPlayerGame"]
+clip_contents = false
+layout_mode = 0
+offset_left = -15.0
+offset_top = 121.0
+offset_right = 145.0
+offset_bottom = 164.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][wave]4 jugadores"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control4/fourPlayerGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_p5ago")
+
+[node name="characterSelectionMargin" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_psx1k")
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/characterSelectionMargin"]
+layout_mode = 2
+
+[node name="playerCharacterLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/characterSelectionMargin/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 35.0
+offset_right = 640.0
+offset_bottom = 76.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_offset_x = 6
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]	Personaje P1"
+
+[node name="playerSelectionColumn1" type="VBoxContainer" parent="SubViewportContainer/SubViewport/characterSelectionMargin"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="textureFeedbackPlayer1" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("ViewportTexture_dnm3t")
+expand_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer1"]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 108.0
+offset_right = 175.0
+offset_bottom = 141.0
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer1/Control"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 33.0
+texture = SubResource("GradientTexture1D_b1gpa")
+
+[node name="characterNamePlayer1" type="Label" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer1/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 33.0
+text = "Bael"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="textureFeedbackPlayer3" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("ViewportTexture_1whsm")
+expand_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer3"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 108.0
+offset_right = 175.0
+offset_bottom = 141.0
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer3/Control"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 33.0
+texture = SubResource("GradientTexture1D_b1gpa")
+
+[node name="characterNamePlayer3" type="Label" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn1/textureFeedbackPlayer3/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 33.0
+text = "Bael"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playerSelectionColumn2" type="VBoxContainer" parent="SubViewportContainer/SubViewport/characterSelectionMargin"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="textureFeedbackPlayer2" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("ViewportTexture_n25ld")
+expand_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 108.0
+offset_right = 175.0
+offset_bottom = 141.0
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer2/Control"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 33.0
+texture = SubResource("GradientTexture1D_b1gpa")
+
+[node name="characterNamePlayer2" type="Label" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer2/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 33.0
+text = "Bael"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="textureFeedbackPlayer4" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("ViewportTexture_l47nh")
+expand_mode = 4
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer4"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 108.0
+offset_right = 175.0
+offset_bottom = 141.0
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer4/Control"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 33.0
+texture = SubResource("GradientTexture1D_b1gpa")
+
+[node name="characterNamePlayer4" type="Label" parent="SubViewportContainer/SubViewport/characterSelectionMargin/playerSelectionColumn2/textureFeedbackPlayer4/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 33.0
+text = "Bael"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="GridContainer" parent="SubViewportContainer/SubViewport/characterSelectionMargin"]
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="characterSelectBael" type="TextureButton" parent="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer" groups=["menu_button"]]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../characterSelectNeptune")
+focus_neighbor_top = NodePath("../../MarginContainer/confirmButton")
+focus_neighbor_right = NodePath("../characterSelectNeptune")
+focus_neighbor_bottom = NodePath("../characterSelectDouche")
+texture_normal = ExtResource("10_xsxv4")
+stretch_mode = 6
+
+[node name="characterSelectNeptune" type="TextureButton" parent="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../characterSelectBael")
+focus_neighbor_top = NodePath("../../MarginContainer/confirmButton")
+focus_neighbor_right = NodePath("../characterSelectBael")
+focus_neighbor_bottom = NodePath("../characterSelectDouche")
+texture_normal = ExtResource("11_6qh7w")
+stretch_mode = 6
+
+[node name="characterSelectDouche" type="TextureButton" parent="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer" groups=["menu_button"]]
+texture_filter = 1
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../characterSelectBael")
+focus_neighbor_bottom = NodePath("../../MarginContainer/confirmButton")
+texture_normal = ExtResource("18_o534s")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/characterSelectionMargin"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 16
+
+[node name="confirmButton" type="Button" parent="SubViewportContainer/SubViewport/characterSelectionMargin/MarginContainer" groups=["menu_button"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_neighbor_top = NodePath("../../HBoxContainer/characterSelectDouche")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/characterSelectBael")
+theme_override_font_sizes/font_size = 32
+text = "¡OK!"
+
+[node name="trackSelectionMenu" parent="SubViewportContainer/SubViewport" instance=ExtResource("18_b1gpa")]
+unique_name_in_owner = true
+visible = false
+
+[node name="pointerControl" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pointer" type="TextureRect" parent="SubViewportContainer/SubViewport/pointerControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(-16, -16)
+texture = ExtResource("19_b1gpa")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="explosionSFX" type="AudioStreamPlayer" parent="SFX"]
+unique_name_in_owner = true
+stream = ExtResource("6_6ngl3")
+volume_db = -6.0
+
+[node name="powerupSFX" type="AudioStreamPlayer" parent="SFX"]
+volume_db = -6.0
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="viewportPlayer1" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="characterCameraPlayer1" type="Camera3D" parent="Node3D/viewportPlayer1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="viewportPlayer2" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="characterCameraPlayer2" type="Camera3D" parent="Node3D/viewportPlayer2"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="viewportPlayer3" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="characterCameraPlayer3" type="Camera3D" parent="Node3D/viewportPlayer3"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="viewportPlayer4" type="SubViewport" parent="Node3D"]
+transparent_bg = true
+size = Vector2i(360, 360)
+
+[node name="characterCameraPlayer4" type="Camera3D" parent="Node3D/viewportPlayer4"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Characters" type="Node3D" parent="Node3D"]
+
+[node name="Bael" parent="Node3D/Characters" instance=ExtResource("3_giqgu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+spinning = true
+sitting = false
+
+[node name="Neptune" parent="Node3D/Characters" instance=ExtResource("4_ilwfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+spinning = true
+sitting = false
+
+[node name="Douche" parent="Node3D/Characters" instance=ExtResource("5_ilwfc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+spinning = true
+sitting = false
+
+[node name="circleTransition" parent="." instance=ExtResource("10_385q5")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+fade_in_on_startup = false
+
+[node name="ColorRect" parent="circleTransition" index="0"]
+material = SubResource("ShaderMaterial_124fu")
+offset_left = -4.0
+offset_right = 636.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="SubViewportContainer/SubViewport/gameSelectMargin/gameSelectAnimationPlayer" to="." method="_on_game_select_animation_player_animation_finished"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control/onePlayerGame" to="." method="_on_one_player_game_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control2/twoPlayerGame" to="." method="_on_two_player_game_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control3/threePlayerGame" to="." method="_on_three_player_game_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/gameSelectMargin/HBoxContainer/Control4/fourPlayerGame" to="." method="_on_four_player_game_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer/characterSelectBael" to="SubViewportContainer/SubViewport/characterSelectionMargin" method="_on_character_select_bael_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer/characterSelectNeptune" to="SubViewportContainer/SubViewport/characterSelectionMargin" method="_on_character_select_neptune_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/characterSelectionMargin/HBoxContainer/characterSelectDouche" to="SubViewportContainer/SubViewport/characterSelectionMargin" method="_on_character_select_douche_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/characterSelectionMargin/MarginContainer/confirmButton" to="SubViewportContainer/SubViewport/characterSelectionMargin" method="_on_confirm_button_pressed"]
+
+[editable path="circleTransition"]

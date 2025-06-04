@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://brs2kdbtj88sr"]
+
+[ext_resource type="PackedScene" uid="uid://btd277p1k3owv" path="res://Tracks/Interspace8/interspace8.glb" id="1_pp1qi"]
+
+[node name="Track" type="Node3D"]
+
+[node name="interspace8" parent="." instance=ExtResource("1_pp1qi")]

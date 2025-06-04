@@ -7,31 +7,12 @@ signal gyro_movement_toggled
 @export_color_no_alpha var mesh_color = Color.WHITE
 @onready var car_mesh = $Jupiter5
 @onready var car_body_mesh = car_mesh.get_node("mainCar")
-@onready var ground_ray = car_mesh.get_node("RayCast3D")
-@onready var spark_vfx_node = car_mesh.get_node("SparkVFX")
 
-@export_category("VFX Particles")
-@onready var white_sparks_explosion_VFX = spark_vfx_node.get_node("whiteSparks")
-@onready var blue_sparks_VFX            = spark_vfx_node.get_node("blueSparks")
-@onready var fire_sparks_VFX            = spark_vfx_node.get_node("fireSparks")
-@onready var super_sparks_VFX           = spark_vfx_node.get_node("superSparks")
-@onready var smoke_cloud_VFX            = spark_vfx_node.get_node("smokeCloud")
-@onready var black_smoke_cloud_VFX      = spark_vfx_node.get_node("blackSmokeCloud")
-@onready var smoke_trail_VFX            = spark_vfx_node.get_node("smokeTrail")
-@onready var black_smoke_trail_VFX      = spark_vfx_node.get_node("blackSmokeTrail")
-#@onready var car_mesh = $carMesh
+@onready var bael_character = preload("res://Main/racerCharacter/bael.tscn")
+@onready var neptune_character = preload("res://Main/racerCharacter/neptune.tscn")
+@onready var douche_character = preload("res://Main/racerCharacter/Douche.tscn")
 
-#@onready var car_body_mesh = $carMesh/body
-@onready var driftSFX = spark_vfx_node.get_node("driftSFX")
-@onready var motorSFX = $SFX/motorSFX
-@onready var turboSFX = $SFX/turboSFX
-@onready var sparkSFX = $SFX/sparkSFX
-@onready var fireSFX = $SFX/fireSFX
-@onready var lightningSFX = $SFX/lightningSFX
-
-@onready var small_turbo_VFX = car_mesh.get_node("TurboVFX/smallTurboVFX")
-@onready var fire_turbo_VFX = car_mesh.get_node("TurboVFX/FireTurboVFX")
-@onready var square_turbo_VFX = car_mesh.get_node("TurboVFX/squareTurboVFX") 
+@export var drift_camera_offset := Vector3.ZERO
 var current_turbo_VFX : CPUParticles3D
 
 var gyro_movement := false
@@ -54,7 +35,7 @@ var mesh_offset = Vector3(0 , 0.6, 0)
 
 var automatic_driving := false
 var accelerate_input : float = 0
-var steer_input = 0
+var steer_input : float = 0
 var is_drifting := false
 var drift_min_velocity : int = 16
 var drift_direction := 0
@@ -63,6 +44,7 @@ var drift_time := 0.0
 var small_boost_time := 1.0
 var boost_time := 1.8
 var super_boost_time := 3.2
+var boost_force = 1.0
 var current_boost_duration : float = 0.5
 var is_boosting := false
 var has_played_spark_sfx := false
@@ -80,23 +62,35 @@ var user_prefs_instance : userPrefs
 var current_camera : Camera3D
 
 func _ready() -> void:
+	load_character()
 	current_camera = get_viewport().get_camera_3d()
 	$SFX/motorSFX.play()
 	unemit_sparks_VFX()
 	#$carMesh/body.get_active_material(0).albedo_color = mesh_color
 	load_user_prefs()
-	await get_tree().create_timer(0.1).timeout
 	#car_body_mesh_offset = car_mesh.position
+
+func load_character() -> void:
+	var character_reference = Global.get("player_" + str(player_id) + "_character")
+	print(character_reference)
+	var character_path
+	match character_reference:
+		"Bael":
+			character_path = bael_character
+		"Neptune":
+			character_path = neptune_character
+		"Douche":
+			character_path = douche_character
+		_:
+			character_path = bael_character
+	var character_instance = character_path.instantiate()
+	%characterMarker.add_child(character_instance)
 
 func load_user_prefs() -> void:
 	user_prefs_instance = userPrefs.load_or_create()
-	gyro_movement = user_prefs_instance.driving_gyro_enabled
+	#gyro_movement = user_prefs_instance.driving_gyro_enabled
+	gyro_movement = false
 	gyro_sensibility = user_prefs_instance.gyro_sensibility
-
-func _physics_process(delta: float) -> void:
-	car_mesh.position = self.position - mesh_offset
-	wheel_animation(delta)
-	#$carMesh.rotation_degrees.z = clamp($carMesh.rotation_degrees.z, -25, 25)
 
 func wheel_animation(delta) -> void:
 	#$"carMesh/wheel-front-left".rotation.y = steer_input
@@ -114,30 +108,47 @@ func wheel_animation(delta) -> void:
 	#$"carMesh/wheel-front-right".rotation.x += linear_velocity.length() * delta
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	if ground_ray.is_colliding():
+	if %groundRay.is_colliding():
 		if linear_velocity.length() <= max_velocity+1: 
 			apply_central_force(car_mesh.global_transform.basis.z * accelerate_input)
 	#print(linear_velocity)
 
-func respawn(marker_position : Vector3) -> void:
+func respawn(spawn_point_instance) -> void:
+	%circleTransition.fade_out()
+	await %circleTransition.transition_finished
+	%circleTransition.fade_in()
+	
 	accelerate_input = 0
 	linear_velocity = Vector3.ZERO
 	is_drifting = false
 	unemit_sparks_VFX()
-	self.position = marker_position
+	self.global_transform = spawn_point_instance.global_transform
+	car_mesh.global_transform = spawn_point_instance.global_transform
 
-func _process(delta):
-	square_turbo_VFX.rotation.z += delta * 3
+func _physics_process(delta: float) -> void:
+	%cameraMarker.position = self.position
+	car_mesh.position = self.position - mesh_offset
+	wheel_animation(delta)
+	
+	%squareTurboVFX.rotation.z += delta * 3
 	motor_SFX_effect()
 	get_input()
-	if !ground_ray.is_colliding():
+	
+	if %groundRay.is_colliding() == false:
 		return
 	
 	if is_drifting:
+		#steer_input = lerp(steer_input, 0.0, delta)
 		if drift_direction == 1:
-			steer_input = clamp(steer_input, -9, -0.6)
+			if steer_input:
+				steer_input = clamp(steer_input, -9, -0.15)
+			else:
+				steer_input = -0.5
 		if drift_direction == -1:
-			steer_input = clamp(steer_input, 0.6, 9)
+			if steer_input:
+				steer_input = clamp(steer_input, 0.15, 9)
+			else:
+				steer_input = 0.5
 	
 	if linear_velocity.length() > turn_stop_limit:
 		var new_basis = car_mesh.global_transform.basis.rotated(car_mesh.global_transform.basis.y, steer_input)
@@ -148,8 +159,8 @@ func _process(delta):
 		car_body_mesh.rotation.z = lerp(car_body_mesh.rotation.z, t, 5.0 * delta)
 		car_body_mesh.rotation_degrees.z = -clamp(car_body_mesh.rotation_degrees.z, -45, 45)
 		#Align y to ground
-		if ground_ray.is_colliding():
-			var n = ground_ray.get_collision_normal()
+		if %groundRay.is_colliding():
+			var n = %groundRay.get_collision_normal()
 			var xform = align_with_y(car_mesh.global_transform, n)
 			car_mesh.global_transform = car_mesh.global_transform.interpolate_with(xform, 10.0 * delta)
 	
@@ -159,20 +170,18 @@ func _process(delta):
 		speed = drift_speed
 		
 		#Drift VFX Section
-		white_sparks_explosion_VFX.set_deferred("emitting", true)
-		smoke_cloud_VFX.set_deferred("emitting", true)
-		smoke_trail_VFX.set_deferred("emitting", true)
-		
+		%whiteSparks.set_deferred("emitting", true)
+		%smokeCloud.set_deferred("emitting", true)
+		%smokeTrail.set_deferred("emitting", true)
 		
 		if drift_direction == 1:
-			spark_vfx_node.position = $Jupiter5/RightTireMarker.position
+			%SparkVFX.position = $Jupiter5/RightTireMarker.position
 			steer_input = 0
 			#steer_input = clamp(steer_input, -9, 0)
 			#print(steer_input)
 			#steering = clamp(steering, 0, drift_steering)
 		elif drift_direction == -1:
-			spark_vfx_node.position = $Jupiter5/LeftTireMarker.position
-			steer_input = clamp(steer_input, 0, 9)
+			%SparkVFX.position = $Jupiter5/LeftTireMarker.position
 			#steering = clamp(steering, 0, drift_steering)
 		#if steer_input == 0:
 			#is_drifting = false
@@ -180,37 +189,37 @@ func _process(delta):
 		
 		if drift_time >= small_boost_time:
 			if !has_played_spark_sfx:
-				sparkSFX.pitch_scale = randf_range(1.0, 1.3)
-				sparkSFX.play()
+				%sparkSFX.pitch_scale = randf_range(1.0, 1.3)
+				%sparkSFX.play()
 				has_played_spark_sfx = true
 			current_boost_duration = 0.2
-			blue_sparks_VFX.set_deferred("emitting", true)
-			current_turbo_VFX = small_turbo_VFX
+			%whiteSparks.set_deferred("emitting", true)
+			current_turbo_VFX = %smallTurboVFX
 		if drift_time >= boost_time:
 			if !has_played_fire_sfx:
-				fireSFX.pitch_scale = randf_range(0.8, 1.2)
-				fireSFX.play()
+				%fireSFX.pitch_scale = randf_range(0.8, 1.2)
+				%fireSFX.play()
 				has_played_fire_sfx = true
 			current_boost_duration = 0.5
-			blue_sparks_VFX.set_deferred("emitting", false)
-			smoke_trail_VFX.set_deferred("emitting", false)
-			fire_sparks_VFX.set_deferred("emitting", true)
-			black_smoke_cloud_VFX.set_deferred("emitting", true)
-			black_smoke_trail_VFX.set_deferred("emitting", true)
-			current_turbo_VFX = fire_turbo_VFX
+			%blueSparks.set_deferred("emitting", false)
+			%smokeTrail.set_deferred("emitting", false)
+			%fireSparks.set_deferred("emitting", true)
+			%blackSmokeCloud.set_deferred("emitting", true)
+			%blackSmokeTrail.set_deferred("emitting", true)
+			current_turbo_VFX = %FireTurboVFX
 		if drift_time >= super_boost_time:
 			if !has_played_lightning_sfx:
-				lightningSFX.pitch_scale = randf_range(0.8, 1.2)
-				lightningSFX.play()
+				%lightningSFX.pitch_scale = randf_range(0.8, 1.2)
+				%lightningSFX.play()
 				has_played_lightning_sfx = true
-			current_boost_duration = 1.1
-			fire_sparks_VFX.set_deferred("emitting", false)
-			black_smoke_cloud_VFX.set_deferred("emitting", false)
-			black_smoke_trail_VFX.set_deferred("emitting", false)
-			white_sparks_explosion_VFX.set_deferred("emitting", true)
-			super_sparks_VFX.set_deferred("emitting", true)
-			square_turbo_VFX.set_deferred("emitting", true)
-			current_turbo_VFX = square_turbo_VFX
+			current_boost_duration = 1.25
+			%fireSparks.set_deferred("emitting", false)
+			%blackSmokeCloud.set_deferred("emitting", false)
+			%blackSmokeTrail.set_deferred("emitting", false)
+			%whiteSparks.set_deferred("emitting", true)
+			%superSparks.set_deferred("emitting", true)
+			%squareTurboVFX.set_deferred("emitting", true)
+			current_turbo_VFX = %squareTurboVFX
 	else:
 		drift_time = 0
 		steering = normal_steering
@@ -230,6 +239,7 @@ func _process(delta):
 		max_velocity = normal_max_velocity
 		if current_turbo_VFX:
 			current_turbo_VFX.set_deferred("emitting", false)
+			%squareTurboVFX.set_deferred("emitting", false)
 		
 		#if !is_drifting:
 			#square_turbo_VFX.set_deferred("emitting", false)
@@ -249,12 +259,12 @@ func get_input() -> void:
 			accelerate_input = -1 * speed
 	if Input.is_action_just_pressed("brake_" + str(player_id)):
 		#Camera pan
-		current_camera.set_offset(Vector3(0, 2, -5), 1)
+		current_camera.set_offset(drift_camera_offset)
 		
 		if linear_velocity.length() < drift_min_velocity:
 			return
 		if accelerate_input > 0 and steer_input != 0:
-			driftSFX.play()
+			%driftSFX.play()
 			is_drifting = true
 			drift_direction = steer_input
 			%cinematicBars.focus_in()
@@ -264,7 +274,7 @@ func get_input() -> void:
 				drift_direction = 1
 	if Input.is_action_just_released("brake_" + str(player_id)):
 		current_camera.set_offset()
-		driftSFX.stop()
+		%driftSFX.stop()
 		unemit_sparks_VFX()
 		%cinematicBars.focus_out()
 		if is_drifting:
@@ -301,21 +311,29 @@ func toggle_automatic_driving() -> void:
 func boost(_drift_time) -> void:
 	if drift_time < small_boost_time:
 		return
+	boost_force = 0
+	if drift_time >= small_boost_time and drift_time < boost_time:
+		boost_force = 10
+	elif drift_time >= drift_time and drift_time < super_boost_time:
+		boost_force = 30
+	elif drift_time >= super_boost_time:
+		boost_force  = 60
+	
 	is_boosting = true
 	$boostTimer.wait_time = current_boost_duration
 	$boostTimer.start()
-	apply_central_impulse(car_mesh.global_transform.basis.z * (accelerate_input/10))
+	apply_central_impulse(car_mesh.global_transform.basis.z * boost_force)
 	
-	turboSFX.pitch_scale = randf_range(0.9, 1.1)
-	turboSFX.play()
+	%turboSFX.pitch_scale = randf_range(0.9, 1.1)
+	%turboSFX.play()
 
 func _on_boost_timer_timeout() -> void:
 	#apply_central_impulse(-$carMesh.global_transform.basis.z * (accelerate_input/5))
 	is_boosting = false
 
 func motor_SFX_effect() -> void:
-	motorSFX.pitch_scale = (linear_velocity.length() / 80) + 0.5
-	driftSFX.pitch_scale = (linear_velocity.length() / 20) + 0.5
+	%motorSFX.pitch_scale = (linear_velocity.length() / 80) + 0.5
+	%driftSFX.pitch_scale = (linear_velocity.length() / 20) + 0.5
 
 func align_with_y(xform, new_y):
 	xform.basis.y = new_y
@@ -324,7 +342,7 @@ func align_with_y(xform, new_y):
 	return xform.orthonormalized()
 
 func unemit_sparks_VFX() -> void:
-	for VFX in spark_vfx_node.get_children():
+	for VFX in %SparkVFX.get_children():
 		if VFX is CPUParticles3D:
 			VFX.set_deferred("emitting", false)
 

@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bfqhxk7i7gx31"
+path.s3tc="res://.godot/imported/SwampTrack_Lillipad_texture.png-a1060ab36194e5414022bbcaf623d3ba.s3tc.ctex"
+path.etc2="res://.godot/imported/SwampTrack_Lillipad_texture.png-a1060ab36194e5414022bbcaf623d3ba.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "303c3791d398524f9df2e1784ab52e50"
+}
+
+[deps]
+
+source_file="res://Tracks/MagicSwamp/SwampTrack_Lillipad_texture.png"
+dest_files=["res://.godot/imported/SwampTrack_Lillipad_texture.png-a1060ab36194e5414022bbcaf623d3ba.s3tc.ctex", "res://.godot/imported/SwampTrack_Lillipad_texture.png-a1060ab36194e5414022bbcaf623d3ba.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

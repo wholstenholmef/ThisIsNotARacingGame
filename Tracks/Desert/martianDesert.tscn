@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4ar6do1m1y6s"]
+
+[ext_resource type="PackedScene" uid="uid://cf7n0els37fso" path="res://Tracks/trackBase.tscn" id="1_6px8u"]
+[ext_resource type="Environment" uid="uid://ca0ya3037m6sc" path="res://Tracks/Desert/enviroment.tres" id="2_6nna0"]
+[ext_resource type="PackedScene" uid="uid://dmusyoqs0j56u" path="res://Main/checkpointTracker/checkpoint_area.tscn" id="3_m0d10"]
+[ext_resource type="PackedScene" uid="uid://chveb6m728lyp" path="res://Tracks/Desert/track.glb" id="4_ljo0w"]
+[ext_resource type="Texture2D" uid="uid://ikasi3tyejpn" path="res://Tracks/Desert/sun.png" id="5_6nna0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6px8u"]
+radius = 240.154
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nna0"]
+size = Vector3(200, 50, 41.275)
+
+[node name="martianDesert" instance=ExtResource("1_6px8u")]
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = ExtResource("2_6nna0")
+
+[node name="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="BoundArea" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3914, 0, 71.0559)
+
+[node name="CollisionShape3D" parent="BoundArea" index="0"]
+shape = SubResource("SphereShape3D_6px8u")
+
+[node name="playerSpawnMarker" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85952, 3.11539, 11.6507)
+
+[node name="checkpointMainNode" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="checkpointArea1" parent="checkpointMainNode" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71, 0, 12)
+
+[node name="checkpointArea2" parent="checkpointMainNode" index="2" instance=ExtResource("3_m0d10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163, 0, 41)
+
+[node name="checkpointArea3" parent="checkpointMainNode" index="3" instance=ExtResource("3_m0d10")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 162, 0, 177)
+
+[node name="checkpointArea4" parent="checkpointMainNode" index="4" instance=ExtResource("3_m0d10")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 67, 37, 177)
+
+[node name="checkpointArea5" parent="checkpointMainNode" index="5" instance=ExtResource("3_m0d10")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -83, -23, 111)
+
+[node name="checkpointArea6" parent="checkpointMainNode" index="6" instance=ExtResource("3_m0d10")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -66, 0, -78)
+
+[node name="checkpointArea7" parent="checkpointMainNode" index="7" instance=ExtResource("3_m0d10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154, 0, -56)
+
+[node name="track" parent="." index="5" instance=ExtResource("4_ljo0w")]
+
+[node name="mainTrack " parent="track" index="1"]
+layers = 3
+
+[node name="spawnSets" parent="." index="6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 82, 2, 9.26435)
+
+[node name="sunSprite" type="Sprite3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -570, 8, 192)
+pixel_size = 3.0
+billboard = 2
+texture_filter = 0
+texture = ExtResource("5_6nna0")
+
+[node name="Area3D" type="Area3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5516, 18.9315, -94.2175)
+reverb_bus_enabled = true
+reverb_bus_name = &"ReverbBus"
+reverb_bus_amount = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("BoxShape3D_6nna0")
+
+[editable path="track"]

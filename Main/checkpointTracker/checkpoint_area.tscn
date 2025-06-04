@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmusyoqs0j56u"]
+
+[ext_resource type="Texture2D" uid="uid://bgo811mi3uoyl" path="res://Assets/Textures/arrow.png" id="1_qqoca"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fk4l8"]
+radius = 30.0
+
+[node name="checkpointArea1" type="Area3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+layers = 512
+pixel_size = 0.4
+axis = 1
+texture = ExtResource("1_qqoca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fk4l8")
+debug_color = Color(0, 0.839216, 0.211765, 1)

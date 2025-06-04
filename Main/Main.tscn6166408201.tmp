@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://blwhphw57nygp"]
+
+[ext_resource type="Script" uid="uid://c73fecjw3n3g2" path="res://Main/MainScripts/main.gd" id="1_1c0po"]
+[ext_resource type="PackedScene" uid="uid://fl58kaw0448p" path="res://Main/HUD/player_screen/playerScreen.tscn" id="2_1nrs2"]
+[ext_resource type="PackedScene" uid="uid://blb16i07t5to8" path="res://Main/Nodes/ScreenEffects/circle_transition.tscn" id="4_yshms"]
+[ext_resource type="PackedScene" uid="uid://c4ar6do1m1y6s" path="res://Main/Tracks/martianDesert.tscn" id="5_8fvvc"]
+[ext_resource type="PackedScene" uid="uid://bgkorpnsxb4mq" path="res://Main/HUD/pause_menu/pause_menu.tscn" id="5_mlbjq"]
+[ext_resource type="PackedScene" uid="uid://bmhsufwyep0cs" path="res://Main/HUD/Timer_node/timer_node.tscn" id="6_u2i7p"]
+
+[sub_resource type="Environment" id="Environment_6aewd"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 3.21
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1c0po")
+
+[node name="pause_menu" parent="." instance=ExtResource("5_mlbjq")]
+config_menu = NodePath("")
+
+[node name="playerScreen" parent="." instance=ExtResource("2_1nrs2")]
+
+[node name="CarNode" parent="playerScreen/SubViewportContainer/SubViewport" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.69212, 0)
+player_id = 1
+mesh_color = Color(1, 1, 1, 1)
+
+[node name="Skeleton3D" parent="playerScreen/SubViewportContainer/SubViewport/CarNode/Jupiter5/Neptune/Armature" index="0"]
+bones/3/rotation = Quaternion(0.674611, 5.27991e-07, 4.82527e-07, 0.738173)
+bones/4/rotation = Quaternion(-0.216622, -1.12958e-11, -3.09883e-07, 0.976255)
+bones/5/rotation = Quaternion(0.258561, 0.477315, -0.400016, 0.738447)
+bones/6/rotation = Quaternion(0.178276, -7.59721e-08, -0.0802876, 0.980699)
+bones/7/rotation = Quaternion(0.112205, 1.31384e-08, -0.0505321, 0.992399)
+bones/8/rotation = Quaternion(-0.0444288, -4.41739e-08, 0.0200088, 0.998812)
+bones/9/rotation = Quaternion(3.75297e-07, 1.50927e-07, -0.735932, 0.677056)
+bones/10/rotation = Quaternion(-1.23397e-07, -2.99607e-07, -0.0421263, 0.999112)
+bones/11/rotation = Quaternion(-3.70756e-09, -2.05502e-07, -0.0990148, 0.995086)
+bones/12/rotation = Quaternion(-4.95004e-09, -1.00892e-08, -0.0194843, 0.99981)
+bones/13/rotation = Quaternion(0.258561, -0.477315, 0.400016, 0.738447)
+bones/14/rotation = Quaternion(0.178276, 7.59721e-08, 0.0802876, 0.980699)
+bones/15/rotation = Quaternion(0.112205, -1.31384e-08, 0.0505321, 0.992399)
+bones/16/rotation = Quaternion(-0.0444288, 4.41739e-08, -0.0200088, 0.998812)
+bones/18/rotation = Quaternion(-0.172087, 0.00118771, -0.0265574, 0.984723)
+bones/19/rotation = Quaternion(-0.095252, -0.000489276, 0.00239615, 0.99545)
+bones/20/rotation = Quaternion(0.0336146, -0.000739513, 0.00371307, 0.999428)
+bones/21/rotation = Quaternion(0.0502652, -0.0017529, 0.0139774, 0.998637)
+bones/22/rotation = Quaternion(0.0394063, 0.0054183, -0.02119, 0.998984)
+bones/23/rotation = Quaternion(0.0924126, 0.11145, 0.761678, 0.631574)
+bones/24/rotation = Quaternion(-0.172087, -0.00118771, 0.0265574, 0.984723)
+bones/25/rotation = Quaternion(-0.095252, 0.000489276, -0.00239615, 0.99545)
+bones/26/rotation = Quaternion(0.0336146, 0.000739513, -0.00371307, 0.999428)
+bones/27/rotation = Quaternion(0.0502652, 0.0017529, -0.0139774, 0.998637)
+bones/28/rotation = Quaternion(0.0394063, -0.0054183, 0.02119, 0.998984)
+bones/29/rotation = Quaternion(2.98925e-07, -1.34685e-07, 0.73551, 0.677514)
+bones/30/rotation = Quaternion(-8.40792e-08, 3.00596e-07, 0.0586983, 0.998276)
+bones/31/rotation = Quaternion(-8.80136e-09, 1.37585e-07, 0.0831112, 0.99654)
+bones/32/rotation = Quaternion(-4.95004e-09, 1.00892e-08, 0.0194843, 0.99981)
+bones/33/rotation = Quaternion(-1.98638e-08, -2.23337e-08, -0.699546, 0.714588)
+bones/34/rotation = Quaternion(-9.61744e-10, -3.3497e-08, -0.00422683, 0.999991)
+bones/35/rotation = Quaternion(-1.50917e-09, 2.55877e-08, -0.00640982, 0.999979)
+bones/36/rotation = Quaternion(3.9651e-09, -1.6256e-08, 0.0175357, 0.999846)
+bones/37/rotation = Quaternion(4.07963e-07, -8.51488e-08, 0.999845, 0.0175859)
+bones/38/rotation = Quaternion(2.19179e-08, -1.63305e-07, 0.00213118, 0.999998)
+bones/39/rotation = Quaternion(2.43042e-08, -5.15769e-08, 0.00980487, 0.999952)
+bones/40/rotation = Quaternion(0.689809, 0.000169365, 0.000537712, 0.723991)
+bones/41/rotation = Quaternion(0.0725658, -2.09737e-09, -0.000747528, 0.997363)
+bones/42/rotation = Quaternion(0.0813541, 7.30016e-12, -0.00083806, 0.996685)
+bones/43/rotation = Quaternion(0.784052, -7.39003e-08, -0.0057187, 0.620669)
+bones/44/rotation = Quaternion(-1.98638e-08, 2.23337e-08, 0.699546, 0.714588)
+bones/45/rotation = Quaternion(-9.61744e-10, 3.3497e-08, 0.00422683, 0.999991)
+bones/46/rotation = Quaternion(-1.50917e-09, -2.55877e-08, 0.00640982, 0.999979)
+bones/47/rotation = Quaternion(3.9651e-09, 1.6256e-08, -0.0175357, 0.999846)
+bones/48/rotation = Quaternion(-4.07963e-07, -8.51488e-08, 0.999845, -0.0175859)
+bones/49/rotation = Quaternion(2.19179e-08, 1.63305e-07, -0.00213118, 0.999998)
+bones/50/rotation = Quaternion(2.43042e-08, 5.15769e-08, -0.00980487, 0.999952)
+bones/51/rotation = Quaternion(0.689809, -0.000169365, -0.000537712, 0.723991)
+bones/52/rotation = Quaternion(0.0725658, 2.09737e-09, 0.000747528, 0.997363)
+bones/53/rotation = Quaternion(0.0813541, -7.30016e-12, 0.00083806, 0.996685)
+bones/54/rotation = Quaternion(0.784052, 7.39003e-08, 0.0057187, 0.620669)
+
+[node name="circleTransition" parent="." instance=ExtResource("4_yshms")]
+
+[node name="World" parent="." instance=ExtResource("5_8fvvc")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 16
+
+[node name="TimerContainer" parent="MarginContainer" instance=ExtResource("6_u2i7p")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/MarginContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(150, 150)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/MarginContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 67.34, 100, 68.786)
+cull_mask = 1047554
+environment = SubResource("Environment_6aewd")
+projection = 1
+size = 375.0
+
+[connection signal="car_lap" from="World/checkpointMainNode" to="MarginContainer/TimerContainer" method="_on_checkpoint_main_node_car_lap"]
+
+[editable path="playerScreen"]
+[editable path="playerScreen/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen/SubViewportContainer/SubViewport/CarNode/Jupiter5/Neptune"]
+[editable path="playerScreen/hudElements/driftHUDControl"]
+[editable path="playerScreen/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]
+[editable path="World"]
+[editable path="World/track"]

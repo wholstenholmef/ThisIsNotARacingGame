@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg13vw15p7gfk"]
+
+[ext_resource type="PackedScene" uid="uid://blwhphw57nygp" path="res://Main/Main.tscn" id="1_8dyxk"]
+[ext_resource type="PackedScene" uid="uid://fl58kaw0448p" path="res://Main/HUD/player_screen/playerScreen.tscn" id="2_0yaqm"]
+
+[node name="MainTwoPlayers" instance=ExtResource("1_8dyxk")]
+
+[node name="playerScreen" parent="." index="2"]
+offset_right = -320.0
+
+[node name="playerScreen2" parent="." index="3" instance=ExtResource("2_0yaqm")]
+offset_left = 320.0
+
+[node name="SubViewport" parent="playerScreen2/SubViewportContainer" index="0"]
+size = Vector2i(160, 180)
+
+[node name="CarNode" parent="playerScreen2/SubViewportContainer/SubViewport" index="0"]
+player_id = 2
+
+[editable path="playerScreen2"]
+[editable path="playerScreen2/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen2/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen2/hudElements/driftHUDControl"]
+[editable path="playerScreen2/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen2/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]

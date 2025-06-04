@@ -1,10 +1,11 @@
-[gd_scene load_steps=64 format=3 uid="uid://c1oxyer0q4s5n"]
+[gd_scene load_steps=65 format=3 uid="uid://c1oxyer0q4s5n"]
 
 [ext_resource type="Script" uid="uid://cwkfds65f5yjs" path="res://Main/loadingScene/loading_node.gd" id="1_4hoty"]
 [ext_resource type="Texture2D" uid="uid://ddf4rrr601ogd" path="res://Assets/Particles/square_particle.png" id="2_03xli"]
-[ext_resource type="PackedScene" uid="uid://bn4b2eieliic0" path="res://Assets/Racecar/race.glb" id="2_kjpqf"]
 [ext_resource type="Texture2D" uid="uid://cmh0034fiqnba" path="res://Assets/HUD/wheel_animation/wheel_sheet.png" id="2_mswrl"]
 [ext_resource type="Texture2D" uid="uid://ckufbdklj28i3" path="res://Assets/Particles/purple_square.png" id="2_pe2ar"]
+[ext_resource type="PackedScene" uid="uid://chveb6m728lyp" path="res://Tracks/Desert/track.glb" id="6_shpiy"]
+[ext_resource type="PackedScene" uid="uid://c2x2d7128ia05" path="res://Tracks/Interspace8/track_interspace8.tscn" id="7_75qeu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mgvao"]
 load_path = "res://.godot/imported/spark_pixel.png-bae39c4c9f802cfe44f9081db3e4486c.ctex"
@@ -336,7 +337,7 @@ animations = [{
 script = ExtResource("1_4hoty")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606313, 1.01244, 2.76643)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.606313, 299.228, 2.76643)
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -517,10 +518,10 @@ color = Color(0, 0, 0, 1)
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="CanvasLayer"]
 position = Vector2(556, 295)
 amount = 30
+texture = ExtResource("2_03xli")
 randomness = 1.0
 lifetime_randomness = 0.8
 fixed_fps = 24
-texture = ExtResource("2_03xli")
 direction = Vector2(-2, -0.5)
 spread = 30.0
 gravity = Vector2(0, 0)
@@ -543,10 +544,10 @@ frame_progress = 0.596208
 [node name="CPUParticles2D3" type="CPUParticles2D" parent="CanvasLayer"]
 position = Vector2(564, 295)
 amount = 4
+texture = ExtResource("2_03xli")
 randomness = 1.0
 lifetime_randomness = 0.8
 fixed_fps = 24
-texture = ExtResource("2_03xli")
 direction = Vector2(-2, -0.5)
 spread = 30.0
 gravity = Vector2(0, 0)
@@ -578,11 +579,26 @@ fit_content = true
 scroll_active = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="race" parent="." instance=ExtResource("2_kjpqf")]
+[node name="race" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31213, 0, 0)
+script = null
+
+[node name="track" parent="." instance=ExtResource("6_shpiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.68892, 0)
+
+[node name="interspace8" parent="." instance=ExtResource("7_75qeu")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

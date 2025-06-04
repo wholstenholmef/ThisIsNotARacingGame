@@ -3,6 +3,5 @@
 [ext_resource type="Script" uid="uid://q5ny4xkq3ii3" path="res://Main/RaceCamera/race_camera.gd" id="1_ye0bj"]
 
 [node name="Camera3D" type="Camera3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, -3)
 doppler_tracking = 2
 script = ExtResource("1_ye0bj")

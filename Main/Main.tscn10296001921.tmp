@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://blwhphw57nygp"]
+
+[ext_resource type="Script" uid="uid://c73fecjw3n3g2" path="res://Main/MainScripts/main.gd" id="1_1c0po"]
+[ext_resource type="PackedScene" uid="uid://fl58kaw0448p" path="res://Main/HUD/player_screen/playerScreen.tscn" id="2_1nrs2"]
+[ext_resource type="PackedScene" uid="uid://bbeynm7fsffvk" path="res://Main/HUD/config_menu/config_menu.tscn" id="3_6aewd"]
+[ext_resource type="PackedScene" uid="uid://bgkorpnsxb4mq" path="res://Main/HUD/pause_menu/pause_menu.tscn" id="5_mlbjq"]
+[ext_resource type="PackedScene" uid="uid://bmhsufwyep0cs" path="res://Main/HUD/Timer_node/timer_node.tscn" id="6_u2i7p"]
+
+[sub_resource type="Environment" id="Environment_6aewd"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 3.21
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1c0po")
+
+[node name="pause_menu" parent="." instance=ExtResource("5_mlbjq")]
+
+[node name="config_menu" parent="." instance=ExtResource("3_6aewd")]
+
+[node name="playerScreen" parent="." instance=ExtResource("2_1nrs2")]
+
+[node name="SubViewport" parent="playerScreen/SubViewportContainer" index="0"]
+size = Vector2i(320, 180)
+
+[node name="CarNode" parent="playerScreen/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.69212, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 16
+
+[node name="TimerContainer" parent="MarginContainer" instance=ExtResource("6_u2i7p")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/MarginContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(150, 150)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/MarginContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 100, 0)
+cull_mask = 1047554
+environment = SubResource("Environment_6aewd")
+projection = 1
+current = true
+size = 700.0
+
+[editable path="playerScreen"]
+[editable path="playerScreen/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen/hudElements/driftHUDControl"]
+[editable path="playerScreen/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]

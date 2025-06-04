@@ -12,8 +12,8 @@ var user_prefs_instance : userPrefs
 func _ready() -> void:
 	super()
 	#the -2 max_checkboxes are textureRects for the sound icons
-	checkboxes_array = $HBoxContainer.get_children()
-	max_checkboxes = $HBoxContainer.get_child_count() - 2
+	checkboxes_array = %checkboxContainer.get_children()
+	max_checkboxes = %checkboxContainer.get_child_count()
 	uncheck_boxes()
 	load_user_prefs()
 	#set_index(default_index)
@@ -29,7 +29,7 @@ func load_user_prefs() -> void:
 		2: #SFX bus
 			set_index(user_prefs_instance.SFX_volume)
 
-func _on_menu_button_pressed() -> void:
+func _on_pressed() -> void:
 	#I repeat the fucking animation here because i dont want to randomize the pitch scale for this button
 	if tweener:
 		tweener.kill()
@@ -57,12 +57,12 @@ func set_index(_index) -> void:
 	else:
 		current_index = _index
 		check_box(current_index)
-	$contentMargin/indexLabel.text = str(current_index)
+	%indexLabel.text = str(current_index)
 	change_audio_bus()
 
 func change_audio_bus() -> void:
 	var index_to_volume : float = remap(current_index, 0, 5, 0, 1)
-	AudioServer.set_bus_volume_db(0, linear_to_db(index_to_volume))
+	AudioServer.set_bus_volume_db(audio_bus_index, linear_to_db(index_to_volume))
 	if user_prefs_instance:
 		match audio_bus_index:
 			0: #Master bus
@@ -74,7 +74,7 @@ func change_audio_bus() -> void:
 		user_prefs_instance.save()
 
 func uncheck_boxes() -> void:
-	for node in $HBoxContainer.get_children():
+	for node in %checkboxContainer.get_children():
 		if !(node is CheckBox):
 			continue
 		node.button_pressed = false
@@ -82,4 +82,4 @@ func uncheck_boxes() -> void:
 func check_box(index) -> void:
 	if index == 0:
 		return
-	get_node("HBoxContainer/CheckBox" + str(index)).button_pressed = true
+	%checkboxContainer.get_node("CheckBox" + str(index)).button_pressed = true

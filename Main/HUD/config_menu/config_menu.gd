@@ -14,11 +14,12 @@ var config_tab_index = 0
 
 var title_tweener
 
+var is_open = false
+
 func _ready() -> void:
+	self.hide()
 	#$SubViewportContainer/SubViewport.world_2d = World2D.new()
 	#load_prefs()
-	open()
-	
 	camera.position = Vector2.ZERO
 	create_category_buttons()
 	deselect_all_icons()
@@ -26,11 +27,25 @@ func _ready() -> void:
 #func load_prefs() -> void:
 	#user_prefs_instance = userPrefs.load_or_create()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause_button"):
+		if !is_open:
+			return
+		close()
+		if get_tree().paused:
+			get_tree().set_deferred("paused", false)
+
 func open() -> void:
+	self.show()
 	$AnimationPlayer.play("open_menu")
+	is_open = true
+	%muteButton.call_deferred("grab_focus")
 
 func close() -> void:
-	$AnimationPlayer.play("open_menu")
+	$AnimationPlayer.play("close_menu")
+	is_open = false
+	await $AnimationPlayer.animation_finished
+	hide()
 
 func change_config_category(_index) -> void:
 	deselect_all_icons()

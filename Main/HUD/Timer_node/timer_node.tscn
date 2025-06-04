@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cvar5lc2qe1rs" path="res://Main/HUD/Timer_node/timer_node.gd" id="1_v385j"]
 
 [node name="TimerContainer" type="MarginContainer"]
-custom_minimum_size = Vector2(132, 32)
-size_flags_horizontal = 8
+custom_minimum_size = Vector2(132, 40)
+size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_v385j")
 
@@ -19,6 +19,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="MinuteLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(33, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -28,6 +29,7 @@ theme_override_constants/outline_size = 8
 text = "00''"
 
 [node name="SecondsLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(29, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -37,6 +39,7 @@ theme_override_constants/outline_size = 8
 text = "00'"
 
 [node name="MilisecondLabel" type="Label" parent="CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -44,3 +47,32 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 8
 text = "000"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="LapControlP1" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="lapLabel" type="Label" parent="LapControlP1"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 15.0
+offset_bottom = 11.0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "LAP 1"
+vertical_alignment = 2
+
+[node name="LapControlP2" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8

@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://05u1w1drxvp"]
+
+[ext_resource type="PackedScene" uid="uid://blwhphw57nygp" path="res://Main/Main.tscn" id="1_van8v"]
+[ext_resource type="PackedScene" uid="uid://fl58kaw0448p" path="res://Main/HUD/player_screen/playerScreen.tscn" id="2_qnfcg"]
+
+[node name="Main" instance=ExtResource("1_van8v")]
+
+[node name="playerScreen" parent="." index="2"]
+offset_right = -320.0
+offset_bottom = -180.0
+small_hud = true
+
+[node name="playerScreen2" parent="." index="3" instance=ExtResource("2_qnfcg")]
+offset_left = 320.0
+offset_bottom = -180.0
+small_hud = true
+
+[node name="SubViewport" parent="playerScreen2/SubViewportContainer" index="0"]
+size = Vector2i(160, 90)
+
+[node name="CarNode" parent="playerScreen2/SubViewportContainer/SubViewport" index="0"]
+player_id = 2
+
+[node name="playerScreen3" parent="." index="4" instance=ExtResource("2_qnfcg")]
+offset_top = 180.0
+offset_right = -320.0
+small_hud = true
+
+[node name="SubViewport" parent="playerScreen3/SubViewportContainer" index="0"]
+size = Vector2i(160, 90)
+
+[node name="CarNode" parent="playerScreen3/SubViewportContainer/SubViewport" index="0"]
+player_id = 3
+
+[node name="playerScreen4" parent="." index="5" instance=ExtResource("2_qnfcg")]
+offset_left = 320.0
+offset_top = 180.0
+small_hud = true
+
+[node name="SubViewport" parent="playerScreen4/SubViewportContainer" index="0"]
+size = Vector2i(160, 90)
+
+[node name="CarNode" parent="playerScreen4/SubViewportContainer/SubViewport" index="0"]
+player_id = 4
+
+[node name="TimerContainer" parent="MarginContainer" index="0"]
+size_flags_vertical = 4
+
+[node name="MarginContainer" parent="MarginContainer" index="1"]
+visible = false
+
+[node name="SubViewport" parent="MarginContainer/MarginContainer/SubViewportContainer" index="0"]
+render_target_update_mode = 0
+
+[editable path="playerScreen2"]
+[editable path="playerScreen2/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen2/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen2/hudElements/driftHUDControl"]
+[editable path="playerScreen2/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen2/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]
+[editable path="playerScreen3"]
+[editable path="playerScreen3/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen3/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen3/hudElements/driftHUDControl"]
+[editable path="playerScreen3/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen3/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]
+[editable path="playerScreen4"]
+[editable path="playerScreen4/SubViewportContainer/SubViewport/CarNode"]
+[editable path="playerScreen4/SubViewportContainer/SubViewport/CarNode/Jupiter5"]
+[editable path="playerScreen4/hudElements/driftHUDControl"]
+[editable path="playerScreen4/hotkeysCanvasLayer/buttonsContainer/AutoAccelerateHotkeyButton"]
+[editable path="playerScreen4/hotkeysCanvasLayer/buttonsContainer/GyroHotkeyButton"]

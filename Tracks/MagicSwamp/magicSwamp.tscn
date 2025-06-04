@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=4 uid="uid://u8shixxygxjb"]
+
+[ext_resource type="PackedScene" uid="uid://cf7n0els37fso" path="res://Tracks/trackBase.tscn" id="1_g17w0"]
+[ext_resource type="PackedScene" uid="uid://dmusyoqs0j56u" path="res://Main/checkpointTracker/checkpoint_area.tscn" id="2_7pdp6"]
+[ext_resource type="PackedScene" uid="uid://d3n41678oo2cr" path="res://Tracks/MagicSwamp/SwampTrack.glb" id="2_16j6r"]
+[ext_resource type="Texture2D" uid="uid://co56rewfybqa" path="res://Tracks/MagicSwamp/space.png" id="3_ixlbq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_16j6r"]
+sky_top_color = Color(0.137255, 0.403922, 0.305882, 1)
+sky_horizon_color = Color(0.803922, 0.968627, 0.886275, 1)
+sky_curve = 0.219613
+ground_bottom_color = Color(0.129412, 0.368627, 0.309804, 1)
+ground_horizon_color = Color(0.803922, 0.968627, 0.886275, 1)
+
+[sub_resource type="Sky" id="Sky_ixlbq"]
+sky_material = SubResource("ProceduralSkyMaterial_16j6r")
+
+[sub_resource type="Environment" id="Environment_7pdp6"]
+background_mode = 2
+sky = SubResource("Sky_ixlbq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ixlbq"]
+size = Vector3(1200, 187.94, 426.862)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pdp6"]
+cull_mode = 2
+albedo_texture = ExtResource("3_ixlbq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ernnv"]
+_surfaces = [{
+"aabb": AABB(-1.82939, -1, -15.4088, 25.6114, 2, 30.8176),
+"format": 34896613377,
+"index_count": 126,
+"index_data": PackedByteArray("AAAgAAIAAAABACAAIAADAAIAAQAhACAAAQAGACEAIAAiAAMAIQAiACAABAADACIABAAFAAMABwAEACIABwAiACMAIQAjACIACQAHACMABgAkACEAJAAjACEABgAIACQACQAjACUAJAAlACMADQAJACUADQAlAAwACgAMACUACgAlACQACAAKACQACAALAAoADgAmABAADgAPACYAJgARABAADwAUACYADwAVABQAFAAnACYAJgAnABEAFAAWACcAFwAnABYAFwASACcAEgARACcAEgATABEAGAAZABoAGAAbABkAGQAcABoAGQAdABwAHgAcAB0AHgAfABwA"),
+"lods": [1.28466, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMABAAFAAMABgAEAAEABgAHAAQACAAHAAYACAAJAAcACgAJAAgACAALAAoACgAMAAkADQAJAAwADgAPABAADwARABAADwASABEAEgATABEAFAASAA8ADwAVABQAFAAWABIAFwASABYAGAAZABoAGAAbABkAGQAcABoAGQAdABwAHgAcAB0AHgAfABwA")],
+"name": "mainRoad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAAAAAACSJAAAAAAAAAAA//8iIgAAAAD//2TgAACSJAAA//8AAAAAAAD//wAAJEkAAAAAAAAkSQAA//8AALZtAAAAAAAAtm0AAP//AABIkv//IiIAAEiSAAAAAAAASJL//2TgAABIkgAA//8AAEiSAAAAAAAA2rYAAAAAAABIkv//IiIAAEiS//9k4AAA2rYAAP//AABIkgAA//8AAGzb//8iIgAAbNsAAAAAAABs2///ZOAAAGzbAAD//wAAbNsAAAAAAAD/////IiIAAGzb//8iIgAA//8AAAAAAABs2///ZOAAAP////9k4AAA//8AAP//AABs2wAA//8AAJIk//8iIgAAJEn//yIiAACSJP//ZOAAACRJ//9k4AAAtm3//yIiAAC2bf//ZOAAANq2//8iIgAA2rb//2TgAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gm0ix"]
+resource_name = "SwampTrack_Cube_003"
+_surfaces = [{
+"aabb": AABB(-45.8282, -56.7785, -46.9782, 81.1532, 375.346, 84.9098),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQABQAHAAkACgAIAAYACQAHAAsACgAMAAgACQALAA0ADgAMAAoADQALAA8ADgAQAAwADQAPABEAEgAQAA4AEQAPABMAEgAUABAAEQATABUAFgAUABIAFQATABcAFgAXABQAFQAXABYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("p3f/////AACDTAAAZtUAANM7//+s8AAAtyAAAIqrAABXiAAAuOQAAAcQ///QxgAAe7P//6zwAACvEAAAXHIAACvEAABm1QAAAAD//6KNAABH3///0MYAALcgAAAuOQAA9+8AAIqrAAAHEP//dFQAAE/v//+ijQAAg0wAAFIPAAD//wAAXHIAANM7//+YKgAAR9///3RUAABXiAAAAAAAAPfvAAAuOQAAp3f//0YbAAB7s///mCoAACvEAABSDwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ernnv")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7cbvl"]
+resource_name = "SwampTrack_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-45.8282, -56.7785, -46.9782, 81.1532, 375.346, 84.9098),
+"attribute_data": PackedByteArray("////f6nqAACp6v9///8AAKnq/39U1QAAVNX/f6nqAABU1f9//78AAP+//39U1QAA/7//f6qqAACqqv9//78AAKqq/39UlQAAVJX/f6qqAABUlf9//38AAP9//39UlQAA/3//f6pqAACqav9//38AAKpq/39VVQAAVVX/f6pqAABVVf9//z8AAP8//39VVQAA/z//f6oqAACqKv9//z8AAKoq/39VFQAAVRX/f6oqAABVFf9/AAAAAAAA/39VFQAA"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_7pdp6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("p3f/////RnWDTAAAZtVGddM7//+s8EZ1V4gAALjkRnXTO///rPD7X7cgAACKq/tfBxD//9DG+1+DTAAAZtX7XwcQ///QxqlKrxAAAFxyqUoAAP//oo2pSrcgAACKq6lKAAD//6KNVTW3IAAALjlVNQcQ//90VFU1rxAAAFxyVTUHEP//dFT/H4NMAABSD/8f0zv//5gq/x+3IAAALjn/H9M7//+YKqoKV4gAAAAAqgqnd///RhuqCoNMAABSD6oKp3f//0YbqgorxAAAUg+qCnuz//+YKqoKV4gAAAAAqgp7s///mCr/H/fvAAAuOf8fR9///3RU/x8rxAAAUg//H0ff//90VFM1//8AAFxyUzVP7///oo1TNffvAAAuOVM1T+///6KNqkr37wAAiquqSkff///QxqpK//8AAFxyqkpH3///0Mb/XyvEAABm1f9fe7P//6zw/1/37wAAiqv/X3uz//+s8Ex1V4gAALjkTHWnd/////9MdSvEAABm1Ux1unJF9LpyRfS6ckX0unJF9Ft6AfxbegH8W3oB/Ft6AfwkfWH+JH1h/iR9Yf4kfWH+Kn+i/yp/ov8qf6L/Kn+i/y+AW/8vgFv/L4Bb/y+AW/8pgJf+KYCX/imAl/4pgJf+6oE5AOqBOQDqgTkA6oE5AGWCswBlgrMAZYKzAGWCswAzgvQAM4L0ADOC9AAzgvQAFIGcABSBnAAUgZwAFIGcAOp+iAHqfogB6n6IAep+iAE1d/EJNXfxCTV38Qk1d/EJ")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gm0ix")
+
+[node name="trackBase" instance=ExtResource("1_g17w0")]
+
+[node name="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_7pdp6")
+
+[node name="BoundArea" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1936, 0, 140.681)
+
+[node name="CollisionShape3D" parent="BoundArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17322, 43.0888, -22.4749)
+shape = SubResource("BoxShape3D_ixlbq")
+
+[node name="checkpointArea1" parent="checkpointMainNode" index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 274, -38.2286, 227)
+
+[node name="checkpointArea2" parent="checkpointMainNode" index="2" instance=ExtResource("2_7pdp6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -202, 12.7714, 227)
+
+[node name="checkpointArea3" parent="checkpointMainNode" index="3" instance=ExtResource("2_7pdp6")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -202, 36.7714, 3)
+
+[node name="checkpointArea4" parent="checkpointMainNode" index="4" instance=ExtResource("2_7pdp6")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -135, 65.7714, -1)
+
+[node name="checkpointArea5" parent="checkpointMainNode" index="5" instance=ExtResource("2_7pdp6")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 143, 58.7714, -1)
+
+[node name="checkpointArea6" parent="checkpointMainNode" index="6" instance=ExtResource("2_7pdp6")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 309, 17.7714, 7)
+
+[node name="spawnSets" parent="." index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 264.637, -50.478, 233.167)
+
+[node name="SwampTrack" parent="." index="7" instance=ExtResource("2_16j6r")]
+
+[node name="mainTrack " parent="SwampTrack" index="0"]
+visible = false
+layers = 3
+
+[node name="Cylinder_001" parent="SwampTrack" index="1"]
+mesh = SubResource("ArrayMesh_7cbvl")
+
+[node name="mainTrack -col" parent="SwampTrack" index="23"]
+layers = 3
+
+[editable path="SwampTrack"]

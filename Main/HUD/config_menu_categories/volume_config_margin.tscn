@@ -10,21 +10,28 @@ script = ExtResource("2_hg4td")
 category_name = "Volumen"
 
 [node name="muteButton" parent="configContainer/VBoxContainer" index="0" instance=ExtResource("3_377uj")]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
-button_text = "Silenciar volumen"
 
 [node name="masterVolumeButton" parent="configContainer/VBoxContainer" index="1" instance=ExtResource("4_h7wjy")]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Volumen
+Maestro"
 
 [node name="musicVolumeButton" parent="configContainer/VBoxContainer" index="2" instance=ExtResource("4_h7wjy")]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Volumen
+Musica"
 audio_bus_index = 1
-button_text = "Volumen musica"
 
 [node name="SFXVolumeButton" parent="configContainer/VBoxContainer" index="3" instance=ExtResource("4_h7wjy")]
+unique_name_in_owner = true
 layout_mode = 2
+text = "Volumen
+Efectos"
 audio_bus_index = 2
-button_text = "Volumen efectos de sonido"
 
 [connection signal="toggled" from="configContainer/VBoxContainer/muteButton" to="." method="_on_mute_button_toggled"]

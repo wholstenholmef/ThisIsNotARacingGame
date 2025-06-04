@@ -2,26 +2,27 @@ class_name mainCamera
 extends Camera3D
 
 @export var follow_target : Node3D
-@export var offset := Vector3.ZERO
-var lerp_speed = 10
-
-var default_offset : Vector3
+var default_offset := Vector3.ZERO
+var offset := Vector3.ZERO
+@export var lerp_speed = 10
 var offset_tweener
 
 func _ready() -> void:
-	default_offset = self.position
+	#await get_tree().process_frame
+	#I dont know why we have to flip these??
+	default_offset.y = self.position.z
+	default_offset.z = self.position.y
 	offset = default_offset
 
 func _physics_process(delta: float) -> void:
 	if !follow_target:
 		return
 	var target_pos = follow_target.global_transform.translated_local(offset)
-	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
+	#var target_pos = follow_target.global_transform.origin + offset
 	
-	if follow_target.get_parent().target != null:
-		look_at(follow_target.get_parent().target.global_position, Vector3.UP)
-	else:
-		look_at(follow_target.global_position, Vector3.UP)
+	#global_transform.origin = global_transform.origin.lerp(target_pos, lerp_speed * delta)
+	global_transform = global_transform.interpolate_with(target_pos, lerp_speed * delta)
+	look_at(follow_target.global_position, Vector3.UP)
 
 func set_offset(value : Vector3 = default_offset, duration = 0.25) -> void:
 	if offset_tweener:

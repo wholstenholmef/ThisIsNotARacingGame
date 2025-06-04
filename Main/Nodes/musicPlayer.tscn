@@ -1,7 +1,174 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgpxyq5ubw1l7"]
+[gd_scene load_steps=8 format=3 uid="uid://cgpxyq5ubw1l7"]
 
 [ext_resource type="Script" uid="uid://bcegwmr102g51" path="res://Main/Nodes/music_player.gd" id="1_2yfy5"]
+[ext_resource type="Texture2D" uid="uid://kkm1tqg636kb" path="res://Assets/HUD/cd.png" id="2_346wp"]
+
+[sub_resource type="Animation" id="Animation_jnvm7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_trl08"]
+resource_name = "track_play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer/CDPivot/CDTexture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(2, 0.5, 2, 0.5, 2, 0.5, 2, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(-1, 1), Vector2(0, 1), Vector2(1, 1), Vector2(0, 1), Vector2(-1, 1), Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer/CDPivot/CDTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(150, -25), Vector2(-92, -25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer/CDPivot/CDTexture:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer/CDPivot/CDTexture:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(2.54912, 1),
+"update": 0,
+"values": [0.0, 31.4159]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/screenMargin/Control/MarginContainer:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 2.5, 3),
+"transitions": PackedFloat32Array(0.5, 1, 2, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ykiw"]
+_data = {
+&"RESET": SubResource("Animation_jnvm7"),
+&"track_play": SubResource("Animation_trl08")
+}
+
+[sub_resource type="Gradient" id="Gradient_7lxfr"]
+offsets = PackedFloat32Array(0, 0.772727, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xqper"]
+gradient = SubResource("Gradient_7lxfr")
+width = 150
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 process_mode = 3
+volume_db = -6.0
+bus = &"Music"
 script = ExtResource("1_2yfy5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0ykiw")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="screenMargin" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/screenMargin"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/screenMargin/Control"]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 76.0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(0, 20)
+
+[node name="GradientBackground" type="TextureRect" parent="CanvasLayer/screenMargin/Control/MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_xqper")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/screenMargin/Control/MarginContainer"]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="songTitle" type="RichTextLabel" parent="CanvasLayer/screenMargin/Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]"
+scroll_active = false
+
+[node name="songCredit" type="RichTextLabel" parent="CanvasLayer/screenMargin/Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Juan Basto"
+
+[node name="CDPivot" type="Control" parent="CanvasLayer/screenMargin/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CDTexture" type="TextureRect" parent="CanvasLayer/screenMargin/Control/MarginContainer/CDPivot"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 150.0
+offset_top = -25.0
+offset_right = 200.0
+offset_bottom = 25.0
+pivot_offset = Vector2(25, 25)
+texture = ExtResource("2_346wp")
+expand_mode = 3

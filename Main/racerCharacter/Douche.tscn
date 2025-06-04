@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlotpdr0tligu"]
+
+[ext_resource type="PackedScene" uid="uid://dj11nmxogqshd" path="res://Main/racerCharacter/raceCharacterBase.tscn" id="1_ohu7i"]
+[ext_resource type="PackedScene" uid="uid://ce5vxf85kbxbq" path="res://Assets/Racers/CaptainDouche/CaptainDouche.glb" id="2_xjc2v"]
+[ext_resource type="Texture2D" uid="uid://dd138onvy2dl" path="res://Assets/Racers/Portraits/captain_douche.png" id="3_xjc2v"]
+
+[node name="Douche" instance=ExtResource("1_ohu7i")]
+
+[node name="CaptainDouche" parent="." index="0" instance=ExtResource("2_xjc2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0)
+
+[node name="Skeleton3D" parent="CaptainDouche/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.0120397, -1.19201e-07, 1.43524e-09, 0.999928)
+bones/1/rotation = Quaternion(-0.0130201, 0.615108, 0.787492, -0.0364696)
+bones/2/rotation = Quaternion(-0.0696719, 0.00500946, -0.0122967, 0.997482)
+bones/3/rotation = Quaternion(0.606598, 0.00222616, -0.00967849, 0.794947)
+bones/4/rotation = Quaternion(0.215515, 0.000460785, 0.00138886, 0.976499)
+bones/5/rotation = Quaternion(0.175475, -0.00793346, 0.000960263, 0.984452)
+bones/6/rotation = Quaternion(0.014374, 0.624515, 0.780213, 0.0322897)
+bones/7/rotation = Quaternion(-0.0946918, -0.00575929, 0.0124412, 0.995412)
+bones/8/rotation = Quaternion(0.614141, -0.00262011, 0.0100481, 0.789128)
+bones/9/rotation = Quaternion(0.224552, -0.000540376, -0.00112301, 0.974461)
+bones/10/rotation = Quaternion(0.00174292, 0.00551413, -7.92433e-06, 0.999983)
+bones/11/rotation = Quaternion(1.02445e-08, 3.19259e-14, -2.33147e-15, 1)
+bones/12/rotation = Quaternion(0.0120397, 1.19201e-07, -1.43524e-09, 0.999928)
+bones/14/rotation = Quaternion(3.76158e-37, 0, -6.61734e-24, 1)
+bones/15/position = Vector3(0.549729, 0.419362, 0.0245446)
+bones/15/rotation = Quaternion(0.166399, -0.618773, -0.67319, 0.369116)
+bones/16/rotation = Quaternion(0.082163, -0.422729, -0.196126, 0.880956)
+bones/17/rotation = Quaternion(-0.000273175, -0.0233865, 7.0159e-05, 0.999727)
+bones/18/rotation = Quaternion(-0.0647197, -0.0745371, -0.672135, 0.733819)
+bones/19/rotation = Quaternion(-0.0861119, -0.113918, -0.72366, 0.675222)
+bones/20/rotation = Quaternion(0.431184, 0.121066, -0.347468, 0.823826)
+bones/21/rotation = Quaternion(-0.0923015, -0.0525481, 0.104797, 0.988806)
+bones/22/rotation = Quaternion(1.88805e-05, -0.0104217, -0.00107298, 0.999945)
+bones/23/rotation = Quaternion(-0.76761, -0.0308126, -0.0296063, 0.639492)
+bones/24/rotation = Quaternion(0.976085, 9.23706e-14, -2.32718e-07, -0.21739)
+bones/24/scale = Vector3(1, 0.999996, 1.00001)
+bones/25/rotation = Quaternion(-0.107168, 1.01086e-13, 2.55516e-08, 0.994241)
+bones/26/rotation = Quaternion(-0.266226, -3.40977e-14, 6.34734e-08, 0.963911)
+bones/27/rotation = Quaternion(-0.346576, -1.74971e-13, 8.263e-08, 0.938022)
+bones/27/scale = Vector3(1, 1.00001, 0.999986)
+bones/28/rotation = Quaternion(-0.324672, -3.94129e-14, 7.74072e-08, 0.945827)
+bones/28/scale = Vector3(1, 1.00001, 0.999985)
+bones/29/rotation = Quaternion(-0.145562, -3.19744e-13, 3.47035e-08, 0.989349)
+bones/30/position = Vector3(-0.549729, 0.419362, 0.0245449)
+bones/30/rotation = Quaternion(0.212032, 0.637924, 0.663784, 0.327851)
+bones/31/rotation = Quaternion(0.0551506, 0.4305, 0.118873, 0.893027)
+bones/32/rotation = Quaternion(-0.000110881, 0.020763, 0.000589665, 0.999784)
+bones/33/rotation = Quaternion(-0.0665757, 0.0685766, 0.658061, 0.746874)
+bones/34/rotation = Quaternion(-0.0942524, 0.112538, 0.745765, 0.649836)
+bones/35/rotation = Quaternion(4.12781e-05, 0.00810548, 3.27548e-05, 0.999967)
+bones/36/rotation = Quaternion(0.431184, -0.121066, 0.347468, 0.823826)
+bones/37/rotation = Quaternion(-0.0923015, 0.0525481, -0.104797, 0.988806)
+bones/38/rotation = Quaternion(-0.69159, 0.027765, 0.0269299, 0.721254)
+bones/39/rotation = Quaternion(0.68506, -3.47374e-07, -4.89997e-07, 0.728487)
+
+[node name="AnimationPlayer" parent="CaptainDouche" index="1"]
+autoplay = "Idle"
+
+[node name="Sprite3D" parent="." index="1"]
+texture = ExtResource("3_xjc2v")
+
+[editable path="CaptainDouche"]

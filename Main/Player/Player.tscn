@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3eikig7yeenx"]
 
 [ext_resource type="Script" uid="uid://cvjgcfk7uaqhc" path="res://Main/Player/player.gd" id="1_gqemh"]
-[ext_resource type="PackedScene" uid="uid://bn4b2eieliic0" path="res://Assets/Racecar/race.glb" id="1_ywsoo"]
+[ext_resource type="PackedScene" uid="uid://bn4b2eieliic0" path="res://Assets/Racecars/race.glb" id="1_ywsoo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8lhqg"]
 size = Vector3(1.26147, 0.723633, 2.56348)

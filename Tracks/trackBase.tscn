@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7n0els37fso"]
+
+[ext_resource type="Script" uid="uid://ddixckobfp0l8" path="res://Main/MainScripts/world.gd" id="1_sjfny"]
+[ext_resource type="PackedScene" uid="uid://dmusyoqs0j56u" path="res://Main/checkpointTracker/checkpoint_area.tscn" id="3_qt65g"]
+[ext_resource type="Texture2D" uid="uid://iyywevb2ob66" path="res://Assets/Textures/initial_spawner.png" id="4_lpik6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mnljx"]
+radius = 400.0
+
+[node name="trackBase" type="Node3D" groups=["raceTrack"]]
+script = ExtResource("1_sjfny")
+metadata/_edit_vertical_guides_ = [320.0]
+metadata/_edit_horizontal_guides_ = [180.0]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.976471, 0.639216, 0.105882, 1)
+light_energy = 0.25
+light_bake_mode = 1
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.0
+
+[node name="BoundArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoundArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17322, 2.59613, 1.62329)
+shape = SubResource("SphereShape3D_mnljx")
+
+[node name="playerSpawnMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.4796, 9, 0)
+
+[node name="checkpointMainNode" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Padding" type="Marker3D" parent="checkpointMainNode"]
+
+[node name="checkpointArea1" parent="checkpointMainNode" instance=ExtResource("3_qt65g")]
+
+[node name="spawnSets" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="respawn1" type="Sprite3D" parent="spawnSets"]
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="respawn2" type="Sprite3D" parent="spawnSets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="respawn3" type="Sprite3D" parent="spawnSets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="respawn4" type="Sprite3D" parent="spawnSets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11)
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="respawn5" type="Sprite3D" parent="spawnSets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="respawn6" type="Sprite3D" parent="spawnSets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -20)
+offset = Vector2(0, -24)
+flip_v = true
+pixel_size = 0.1
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_lpik6")
+
+[node name="debugMargin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="debugMargin"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="checkpointTrackerLabel" type="Label" parent="debugMargin/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="checkpointDistanceTrackerLabel" type="Label" parent="debugMargin/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="body_exited" from="BoundArea" to="." method="_on_bound_area_body_exited"]
